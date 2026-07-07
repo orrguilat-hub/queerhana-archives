@@ -1,0 +1,7 @@
+# Internal / non-public — never publish (Cloudflare serves the repo root)
+CLAUDE.md
+rights-disclaimer-draft.md
+internal/
+
+# OS cruft
+.DS_Store
