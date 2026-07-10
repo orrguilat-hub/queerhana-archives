@@ -1,8 +1,7 @@
 const TYPE_LABELS = {
   pdf: 'Text / Flyer',
   video: 'Video',
-  image: 'Photo',
-  spreadsheet: 'Record'
+  image: 'Photo'
 };
 
 let allItems = [];
@@ -18,11 +17,15 @@ async function loadCatalog() {
 function matchesSearch(item, term) {
   if (!term) return true;
   const haystack = [
-    item.title, item.description, item.folder,
-    item.created_year, item.credit_text, item.notes
+    item.title, item.description, item.created_year, item.credit_text
   ].filter(Boolean).join(' ').toLowerCase();
   return haystack.includes(term);
 }
+
+// Internet Archive URL helpers
+const iaThumb    = id => `https://archive.org/services/img/${id}`;
+const iaDetails  = id => `https://archive.org/details/${id}`;
+const iaDownload = (id, file) => `https://archive.org/download/${id}/${encodeURIComponent(file)}`;
 
 function render() {
   const grid = document.getElementById('catalog-grid');
@@ -43,11 +46,13 @@ function render() {
     const card = document.createElement('article');
     card.className = 'card';
 
-    const credit = (item.credit_text && item.credit_text !== 'n/a' && item.credit_text !== 'unknown')
-      ? `Credit: ${item.credit_text}`
-      : (item.credit_text === 'unknown' ? 'Credit: unconfirmed' : '');
+    const credit = item.credit_text ? `Credit: ${item.credit_text}` : '';
 
     card.innerHTML = `
+      <a class="card-thumb" href="${iaDetails(item.archive_id)}" target="_blank" rel="noopener" aria-label="View ${escapeHTML(item.title)} on the Internet Archive">
+        <img src="${iaThumb(item.archive_id)}" alt="${escapeHTML(item.title)}" loading="lazy"
+             onerror="this.closest('.card-thumb').classList.add('noimg'); this.remove();">
+      </a>
       <span class="card-type">${TYPE_LABELS[item.file_type] || item.file_type}</span>
       <h2 class="card-title">${escapeHTML(item.title)}</h2>
       <p class="card-desc">${escapeHTML(item.description)}</p>
@@ -56,7 +61,10 @@ function render() {
         ${credit ? `<span>${escapeHTML(credit)}</span>` : ''}
       </div>
       <span class="card-license">${escapeHTML(item.cc_license)}</span>
-      <a class="card-link" href="${item.drive_url}" target="_blank" rel="noopener">View source file →</a>
+      <div class="card-links">
+        <a class="card-link" href="${iaDetails(item.archive_id)}" target="_blank" rel="noopener">View&nbsp;↗</a>
+        <a class="card-link card-link--alt" href="${iaDownload(item.archive_id, item.ia_file)}" target="_blank" rel="noopener">Download&nbsp;↓</a>
+      </div>
     `;
     grid.appendChild(card);
   });

@@ -239,8 +239,42 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--riso-cyan); out
   padding: 0.15rem 0.4rem;
   width: fit-content;
 }
-.card-link {
+/* ---------- Card thumbnail ---------- */
+.card-thumb {
+  display: block;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  position: relative;
+}
+.card-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.card-thumb.noimg::after {
+  content: "no preview";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: #999;
+  background:
+    repeating-linear-gradient(45deg, rgba(23,21,18,0.05) 0 8px, transparent 8px 16px);
+}
+
+.card-links {
   margin-top: auto;
+  display: flex;
+  gap: 0.4rem;
+}
+.card-link {
+  flex: 1;
   font-family: var(--font-mono);
   font-size: 0.8rem;
   font-weight: 700;
@@ -251,6 +285,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--riso-cyan); out
   padding: 0.5rem;
   background: var(--riso-yellow);
 }
+.card-link--alt { background: var(--riso-cyan); color: #fff; }
 .card-link:hover { background: var(--ink); color: var(--paper); }
 
 /* ---------- Footer ---------- */
