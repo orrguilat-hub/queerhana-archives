@@ -119,5 +119,16 @@
     "created_year": "2009",
     "credit_text": "Pink Communities Coalition",
     "cc_license": "CC BY-NC-SA 4.0"
+  },
+  {
+    "id": "12",
+    "archive_id": "queerhana-wooden-dsc4345",
+    "ia_file": "wooden-queerhana-4345.jpg",
+    "file_type": "image",
+    "title": "Wooden Queerhana",
+    "description": "Photograph from the Queerhana archive, Tel Aviv.",
+    "created_year": "2005",
+    "credit_text": "Queerhana Archive",
+    "cc_license": "CC BY-NC-SA 4.0"
   }
 ]
