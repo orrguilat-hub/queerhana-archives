@@ -6,60 +6,92 @@
 <title>QueeRhaNA Archives</title>
 <meta name="description" content="A public archive of material from a decade of queer public-space activism, Tel Aviv, 2000s.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="masthead">
-  <div class="masthead-inner">
-    <h1 class="title">QueeRhaNA<br>Archives</h1>
-    <p class="subtitle">an archive of public-space activism &amp; queer nightlife — Tel Aviv, 2000s</p>
-    <span class="stamp">OPEN ACCESS</span>
-  </div>
+<header class="topnav">
+  <span class="wordmark">queerhana</span>
+  <nav aria-label="Section navigation">
+    <a href="#manifesto">Manifesto</a>
+    <a href="#archive">Archive</a>
+    <a href="#about">About</a>
+  </nav>
+  <span class="locale">Yaffo–Tel Aviv, 2000s</span>
 </header>
 
-<nav class="site-nav" aria-label="Section navigation">
-  <a href="#catalog">Archive</a>
-  <a href="#about">About</a>
-</nav>
-
 <main>
-  <section class="intro">
-    <p>Ten years of flyers, footage, photographs and correspondence — collected informally, scattered across drives and drawers, brought back into the light. Every item links out to its original file. Nothing here is for sale.</p>
-  </section>
-
-  <section class="about" id="about">
-    <h2 class="section-title">About</h2>
-    <div class="about-body">
-      <p>Queerhana was one of the first queer movements to emerge in the Middle East, founded in Tel Aviv in 2001. Combining punk, rave culture and direct-action politics, it staged unlicensed parties in reclaimed public spaces — resisting both commercial nightlife and political oppression — and became a formative gathering point for a generation of queer artists and activists across the following decade.</p>
-
-      <p class="further-reading-label">Further reading &amp; viewing</p>
-      <ul class="further-reading">
-        <li><a href="https://www.beck-shop.de/queerhana/product/25623262" target="_blank" rel="noopener">Queerhana: Utopia Now!</a> — retrospective book on the movement, published 2017.</li>
-        <li><a href="https://vimeo.com/299985084" target="_blank" rel="noopener">Queerhana documentary</a> — short film, released 2017, on Vimeo.</li>
-      </ul>
-
-      <p class="credit-line">Website created by <a href="https://www.orrguilat.org/" target="_blank" rel="noopener">Orr Guilat</a>.</p>
+  <section class="hero" id="hero">
+    <h1>queerhana archives</h1>
+    <p>an archive of public-space queer activism<br>Yaffo–Tel Aviv, 2000s</p>
+    <div class="actions">
+      <a class="btn btn-primary" href="#archive">Enter Archive</a>
+      <a class="btn" href="#manifesto">Read Manifesto</a>
     </div>
   </section>
 
-  <h2 class="section-title" id="catalog">Archive</h2>
-
-  <section class="search-bar">
-    <label for="search-input" class="visually-hidden">Search archive</label>
-    <input type="search" id="search-input" placeholder="Search by title, date, subject…" autocomplete="off">
+  <section class="manifesto" id="manifesto">
+    <div>
+      <h2>principle of permanence</h2>
+      <p>The archive is not a static repository but a living record of defiance. We prioritize the preservation of queer ephemeral history — the protests, the flyers, and the underground networks that institutional archives have historically ignored or erased.</p>
+      <p>Permanence is a political act. By securing these records, we ensure that the voices of this movement remain accessible to future generations.</p>
+    </div>
+    <div>
+      <h2>radical structure</h2>
+      <p>Queerhana was one of the first queer movements to emerge in the Middle East, founded in Tel Aviv in 2001. Combining punk, rave culture and direct-action politics, it staged unlicensed parties in reclaimed public spaces — resisting both commercial nightlife and political oppression.</p>
+      <p>It became a formative gathering point for a generation of queer artists and activists across the following decade. Every item here is public access material, published for historical recognition — nothing is for sale.</p>
+    </div>
   </section>
 
-  <section class="controls" aria-label="Filter archive items">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="pdf">Text &amp; Flyers</button>
-    <button class="filter-btn" data-filter="video">Video</button>
-    <button class="filter-btn" data-filter="image">Photos</button>
+  <section class="featured">
+    <div>
+      <div class="label">Further reading</div>
+      <h3>queerhana: utopia now!</h3>
+      <p><a href="https://www.beck-shop.de/queerhana/product/25623262" target="_blank" rel="noopener">Retrospective book on the movement</a>, published 2017.</p>
+    </div>
+    <div>
+      <div class="label">Further viewing</div>
+      <h3>queerhana documentary</h3>
+      <p><a href="https://vimeo.com/299985084" target="_blank" rel="noopener">Short film on the movement</a>, released 2017, on Vimeo.</p>
+    </div>
   </section>
 
-  <section class="grid" id="catalog-grid" aria-live="polite">
-    <!-- items injected by script.js -->
+  <section class="about" id="about">
+    <p class="credit-line">Website created by <a href="https://www.orrguilat.org/" target="_blank" rel="noopener">Orr Guilat</a>.</p>
+  </section>
+
+  <section id="archive">
+    <div class="archive-header">
+      <div class="archive-header-top">
+        <div class="title-row">
+          <h2>The Archive</h2>
+          <label for="search-input" class="visually-hidden">Search archive</label>
+          <input type="search" id="search-input" placeholder="Search archive..." autocomplete="off">
+        </div>
+        <span class="item-count" id="item-count"></span>
+      </div>
+      <nav class="type-filters" aria-label="Filter archive items">
+        <button class="filter-btn active" data-filter="all">All Objects</button>
+        <button class="filter-btn" data-filter="image">Photography</button>
+        <button class="filter-btn" data-filter="video">Video</button>
+        <button class="filter-btn" data-filter="pdf">Text &amp; Documents</button>
+      </nav>
+    </div>
+
+    <section class="grid" id="catalog-grid" aria-live="polite">
+      <!-- items injected by script.js -->
+    </section>
+  </section>
+
+  <section class="contribute" id="contribute">
+    <div class="contribute-box">
+      <div>
+        <h2>contribute to the skeleton</h2>
+        <p>The archive is only as strong as its bones. If you have records, stories, or digital artifacts from this movement, help us build a more resilient queer history.</p>
+      </div>
+      <a class="btn btn-primary" href="mailto:qharchives@gmail.com">Contact Us</a>
+    </div>
   </section>
 </main>
 
@@ -70,7 +102,10 @@
       This archive brings together material collected informally over many years, often without complete records of authorship. We have made a good-faith effort to identify and credit the rights holder of each item. If you believe a credit is missing, incorrect, or if you are the rights holder of any material shown here, please contact us at
       <a href="mailto:qharchives@gmail.com">qharchives@gmail.com</a> — we will review and correct it promptly.
     </p>
-    <p class="footer-meta">This Is Free Zone Archive · items hosted on the Internet Archive · individual licenses noted per item</p>
+    <p class="footer-meta">
+      <span>queerhana archive · items hosted on the Internet Archive</span>
+      <span class="lic">CC BY-NC-SA 4.0</span>
+    </p>
   </div>
 </footer>
 
