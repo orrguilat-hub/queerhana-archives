@@ -249,7 +249,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   .archive-header-top .title-row { width: auto; }
   #search-input { width: 240px; flex-grow: 0; }
   .adv-field { flex-grow: 0; }
-  .adv-input { flex-grow: 0; width: 160px; }
+  .adv-input { flex-grow: 0; width: 120px; }
 }
 
 /* ---------- Grid ---------- */
