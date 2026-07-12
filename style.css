@@ -148,7 +148,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   object-fit: cover; border: 1px solid var(--ink); background: var(--ink);
 }
 .featured-text {
-  display: flex; flex-direction: column; justify-content: flex-start;
+  display: flex; flex-direction: column; justify-content: center;
   height: 128px;
 }
 .featured h3 {
