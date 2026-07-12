@@ -153,17 +153,4 @@ document.getElementById('load-more').addEventListener('click', () => {
   render();
 });
 
-// Vimeo thumbnail: fetched client-side (the visitor's browser, not this build step)
-// via the official oEmbed API. Falls back to an empty bordered box on failure.
-fetch('https://vimeo.com/api/oembed.json?url=' + encodeURIComponent('https://vimeo.com/299985084'))
-  .then(res => res.ok ? res.json() : Promise.reject())
-  .then(data => {
-    const img = document.getElementById('vimeo-thumb');
-    if (data.thumbnail_url) {
-      img.src = data.thumbnail_url;
-      img.classList.remove('featured-thumb--empty');
-    }
-  })
-  .catch(() => {});
-
 loadCatalog();
