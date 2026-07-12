@@ -12,19 +12,23 @@
 <body>
 
 <header class="topnav">
-  <span class="wordmark">queerhana</span>
+  <div class="wordmark-group">
+    <img src="assets/bones-smiley.png" alt="" class="logo-icon" width="32" height="32">
+    <span class="wordmark">queerhana</span>
+  </div>
   <nav aria-label="Section navigation">
     <a href="#manifesto">Manifesto</a>
     <a href="#archive">Archive</a>
-    <a href="#about">About</a>
+    <a href="#contribute">Contribute</a>
   </nav>
-  <span class="locale">Yaffo–Tel Aviv, 2000s</span>
+  <span class="locale">Yaffo-Tel Aviv, 2000s</span>
 </header>
 
 <main>
   <section class="hero" id="hero">
+    <img src="assets/bones-smiley.png" alt="Queerhana" class="hero-logo" width="84" height="84">
     <h1>queerhana archives</h1>
-    <p>an archive of public-space queer activism<br>Yaffo–Tel Aviv, 2000s</p>
+    <p>an archive of public-space queer activism<br>Yaffo-Tel Aviv, 2000s</p>
     <div class="actions">
       <a class="btn btn-primary" href="#archive">Enter Archive</a>
       <a class="btn" href="#manifesto">Read Manifesto</a>
@@ -47,18 +51,26 @@
   <section class="featured">
     <div>
       <div class="label">Further reading</div>
-      <h3>queerhana: utopia now!</h3>
-      <p><a href="https://www.beck-shop.de/queerhana/product/25623262" target="_blank" rel="noopener">Retrospective book on the movement</a>, published 2017.</p>
+      <div class="featured-body">
+        <img src="assets/utopia-now-cover.webp" alt="Queerhana: Utopia Now! book cover" class="featured-thumb">
+        <div>
+          <h3>queerhana: utopia now!</h3>
+          <p>Retrospective book on the movement, published 2017.</p>
+          <a class="btn" href="https://www.beck-shop.de/queerhana/product/25623262" target="_blank" rel="noopener">Order Now</a>
+        </div>
+      </div>
     </div>
     <div>
       <div class="label">Further viewing</div>
-      <h3>queerhana documentary</h3>
-      <p><a href="https://vimeo.com/299985084" target="_blank" rel="noopener">Short film on the movement</a>, released 2017, on Vimeo.</p>
+      <div class="featured-body">
+        <img id="vimeo-thumb" alt="Queerhana documentary thumbnail" class="featured-thumb featured-thumb--empty">
+        <div>
+          <h3>nation monsters and super queers</h3>
+          <p><a href="https://vimeo.com/299985084" target="_blank" rel="noopener">Queerhana documentary short</a>, released 2017, on Vimeo.</p>
+          <a class="btn" href="https://vimeo.com/299985084" target="_blank" rel="noopener">Watch</a>
+        </div>
+      </div>
     </div>
-  </section>
-
-  <section class="about" id="about">
-    <p class="credit-line">Website created by <a href="https://www.orrguilat.org/" target="_blank" rel="noopener">Orr Guilat</a>.</p>
   </section>
 
   <section id="archive">
@@ -71,6 +83,29 @@
         </div>
         <span class="item-count" id="item-count"></span>
       </div>
+
+      <div class="adv-filters">
+        <div class="adv-field">
+          <span class="adv-label">Years:</span>
+          <input type="text" id="filter-year-start" placeholder="Start" class="adv-input adv-input--narrow">
+          <span class="adv-dash">—</span>
+          <input type="text" id="filter-year-end" placeholder="End" class="adv-input adv-input--narrow">
+        </div>
+        <div class="adv-field">
+          <span class="adv-label">Event:</span>
+          <input type="text" id="filter-event" placeholder="Filter by event..." class="adv-input">
+        </div>
+        <div class="adv-field">
+          <span class="adv-label">Location:</span>
+          <input type="text" id="filter-location" placeholder="Filter by location..." class="adv-input">
+        </div>
+        <div class="adv-field">
+          <span class="adv-label">Credit:</span>
+          <input type="text" id="filter-credit" placeholder="Filter by credit..." class="adv-input">
+        </div>
+        <button class="btn btn-primary adv-apply" id="apply-filters">Apply Filters</button>
+      </div>
+
       <nav class="type-filters" aria-label="Filter archive items">
         <button class="filter-btn active" data-filter="all">All Objects</button>
         <button class="filter-btn" data-filter="image">Photography</button>
@@ -82,30 +117,49 @@
     <section class="grid" id="catalog-grid" aria-live="polite">
       <!-- items injected by script.js -->
     </section>
+
+    <div class="load-more-wrap">
+      <button id="load-more" class="load-more" hidden>
+        <span>Load More Items</span>
+        <span class="chevron">&#8964;</span>
+      </button>
+    </div>
   </section>
 
   <section class="contribute" id="contribute">
     <div class="contribute-box">
+      <span class="contribute-badge">
+        <img src="assets/bones-smiley.png" alt="">
+      </span>
       <div>
         <h2>contribute to the skeleton</h2>
         <p>The archive is only as strong as its bones. If you have records, stories, or digital artifacts from this movement, help us build a more resilient queer history.</p>
       </div>
-      <a class="btn btn-primary" href="mailto:qharchives@gmail.com">Contact Us</a>
+      <a class="btn btn-primary" href="mailto:qharchives@gmail.com">Email It 2 Us</a>
     </div>
+  </section>
+
+  <section class="rights-note" id="rights">
+    <p>
+      <strong>A note on rights and attribution.</strong>
+      This archive brings together material collected informally over many years, often without complete records of authorship. We have made a good-faith effort to identify and credit the rights holder of each item. If you believe a credit is missing, incorrect, or if you are the rights holder of any material shown here, please contact us at
+      <a href="mailto:qharchives@gmail.com">qharchives@gmail.com</a> — we will review and correct it promptly.
+    </p>
   </section>
 </main>
 
 <footer class="site-footer">
   <div class="footer-inner">
-    <p class="disclaimer">
-      <strong>A note on rights and attribution.</strong>
-      This archive brings together material collected informally over many years, often without complete records of authorship. We have made a good-faith effort to identify and credit the rights holder of each item. If you believe a credit is missing, incorrect, or if you are the rights holder of any material shown here, please contact us at
-      <a href="mailto:qharchives@gmail.com">qharchives@gmail.com</a> — we will review and correct it promptly.
-    </p>
-    <p class="footer-meta">
-      <span>queerhana archive · items hosted on the Internet Archive</span>
+    <div class="footer-brand">
+      <img src="assets/bones-smiley.png" alt="" class="footer-logo" width="20" height="20">
+      <span>queerhana archive 2026</span>
       <span class="lic">CC BY-NC-SA 4.0</span>
-    </p>
+    </div>
+    <div class="footer-links">
+      <span>Created by <a href="https://www.orrguilat.org/" target="_blank" rel="noopener">Orr Guilat</a></span>
+      <span class="footer-sep">·</span>
+      <span>Items hosted on the Internet Archive</span>
+    </div>
   </div>
 </footer>
 
