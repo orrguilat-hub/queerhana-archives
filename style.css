@@ -159,7 +159,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .featured p a { text-decoration: underline; }
 .featured p a:hover { color: var(--voltage-pink); }
 .featured .btn {
-  padding: 6px 16px; font-weight: 400; letter-spacing: normal;
+  padding: 6px 16px;
 }
 .featured .btn:hover { background: var(--voltage-pink); color: #fff; border-color: var(--voltage-pink); }
 
@@ -196,12 +196,12 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 }
 .archive-header-top h2 {
   font-size: 10px; font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.08em; white-space: nowrap; margin: 0;
+  letter-spacing: 0.1em; white-space: nowrap; margin: 0;
 }
 #search-input {
   flex-grow: 1;
   background: transparent; border: 1px solid var(--ink);
-  padding: 6px 10px; font-size: 10px;
+  padding: 6px 12px; font-size: 10px;
 }
 #search-input::placeholder { color: rgba(0,0,0,0.4); }
 .item-count { font-size: 10px; color: var(--secondary); text-transform: uppercase; white-space: nowrap; }
@@ -215,7 +215,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 }
 .adv-field { display: flex; align-items: center; gap: 6px; flex-grow: 1; }
 .adv-label {
-  font-size: 10px; font-weight: 700; text-transform: uppercase; color: var(--secondary);
+  font-size: 10px; font-weight: 400; text-transform: uppercase; color: var(--secondary);
   white-space: nowrap;
 }
 .adv-input {
@@ -226,19 +226,20 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .adv-input::placeholder { color: rgba(0,0,0,0.4); }
 .adv-dash { color: var(--ink); }
 .adv-apply {
-  margin-left: auto; padding: 6px 14px; font-size: 10px;
+  margin-left: auto; padding: 4px 12px; font-size: 10px; font-weight: 400;
 }
 
 .type-filters {
-  padding: 8px 16px;
-  display: flex; flex-wrap: wrap; gap: 8px;
+  height: 40px; box-sizing: border-box;
+  padding: 0 16px;
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
   background: var(--surface-low);
   overflow-x: auto;
 }
 .filter-btn {
-  font-size: 10px; font-weight: 700; letter-spacing: 0.04em;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.05em;
   background: transparent; border: none; color: var(--ink);
-  padding: 6px 12px; white-space: nowrap;
+  padding: 4px 12px; white-space: nowrap;
 }
 .filter-btn:hover { background: var(--ink); color: var(--paper); }
 .filter-btn.active { background: var(--ink); color: var(--paper); }
@@ -248,7 +249,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   .archive-header-top .title-row { width: auto; }
   #search-input { width: 240px; flex-grow: 0; }
   .adv-field { flex-grow: 0; }
-  .adv-input { flex-grow: 0; width: 140px; }
+  .adv-input { flex-grow: 0; width: 160px; }
 }
 
 /* ---------- Grid ---------- */
