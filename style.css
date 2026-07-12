@@ -245,12 +245,34 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .filter-btn:hover { background: var(--ink); color: var(--paper); }
 .filter-btn.active { background: var(--ink); color: var(--paper); }
 
+.filters-toggle { display: none; }
+
 @media (min-width: 768px) {
   .archive-header-top { flex-direction: row; justify-content: space-between; align-items: center; }
   .archive-header-top .title-row { width: auto; }
   #search-input { width: 240px; flex-grow: 0; }
   .adv-field { flex-grow: 0; }
   .adv-input { flex-grow: 0; width: 125px; }
+}
+
+/* Mobile-only: collapse the advanced filters behind a toggle so they
+   don't consume most of the screen; desktop is untouched by this block. */
+@media (max-width: 767px) {
+  .filters-toggle {
+    display: flex; align-items: center; gap: 6px; width: 100%;
+    background: var(--paper); border: none; border-bottom: 1px solid var(--ink);
+    padding: 10px 16px; font-size: 10px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.05em; color: var(--ink); line-height: 1;
+  }
+  .filters-toggle .chevron { font-size: 14px; transition: transform 0.15s; }
+  .filters-toggle[aria-expanded="true"] .chevron { transform: rotate(180deg); }
+  .adv-filters { display: none; }
+  .adv-filters.open { display: flex; }
+
+  /* Keep further-reading/viewing text flush with the thumbnail's top edge
+     regardless of how many lines the title wraps to (desktop keeps
+     justify-content:center as-is, per the literal mockup markup). */
+  .featured-text { justify-content: flex-start; }
 }
 
 /* ---------- Grid ---------- */

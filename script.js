@@ -153,4 +153,11 @@ document.getElementById('load-more').addEventListener('click', () => {
   render();
 });
 
+document.getElementById('filters-toggle').addEventListener('click', () => {
+  const toggle = document.getElementById('filters-toggle');
+  const filters = document.getElementById('adv-filters');
+  const isOpen = filters.classList.toggle('open');
+  toggle.setAttribute('aria-expanded', isOpen);
+});
+
 loadCatalog();
