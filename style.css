@@ -238,6 +238,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 }
 .filter-btn {
   font-size: 10px; font-weight: 700; letter-spacing: 0.05em; line-height: 1;
+  text-transform: uppercase;
   background: transparent; border: none; color: var(--ink);
   padding: 8px 12px; white-space: nowrap;
 }
