@@ -1,5 +1,5 @@
 const TYPE_LABELS = {
-  pdf: 'Text / Flyer',
+  pdf: 'Document',
   video: 'Video',
   image: 'Photo'
 };
@@ -11,6 +11,7 @@ let searchTerm = '';
 async function loadCatalog() {
   const res = await fetch('data/catalog.json');
   allItems = await res.json();
+  document.getElementById('item-count').textContent = `${allItems.length} items catalogued`;
   render();
 }
 
@@ -38,7 +39,7 @@ function render() {
     .filter(i => matchesSearch(i, term));
 
   if (items.length === 0) {
-    grid.innerHTML = '<p style="font-family: var(--font-mono);">No items match your search.</p>';
+    grid.innerHTML = '<p class="empty-msg">No items match your search.</p>';
     return;
   }
 
@@ -47,23 +48,31 @@ function render() {
     card.className = 'card';
 
     const credit = item.credit_text ? `Credit: ${item.credit_text}` : '';
+    const tagClass = `tag-${item.file_type}`;
+    const tagLabel = (TYPE_LABELS[item.file_type] || item.file_type).toUpperCase();
 
     card.innerHTML = `
       <a class="card-thumb" href="${iaDetails(item.archive_id)}" target="_blank" rel="noopener" aria-label="View ${escapeHTML(item.title)} on the Internet Archive">
+        <span class="card-tag ${tagClass}">${tagLabel}</span>
         <img src="${iaThumb(item.archive_id)}" alt="${escapeHTML(item.title)}" loading="lazy"
              onerror="this.closest('.card-thumb').classList.add('noimg'); this.remove();">
       </a>
-      <span class="card-type">${TYPE_LABELS[item.file_type] || item.file_type}</span>
-      <h2 class="card-title">${escapeHTML(item.title)}</h2>
-      <p class="card-desc">${escapeHTML(item.description)}</p>
-      <div class="card-meta">
-        <span>${escapeHTML(item.created_year)}</span>
-        ${credit ? `<span>${escapeHTML(credit)}</span>` : ''}
-      </div>
-      <span class="card-license">${escapeHTML(item.cc_license)}</span>
-      <div class="card-links">
-        <a class="card-link" href="${iaDetails(item.archive_id)}" target="_blank" rel="noopener">View&nbsp;↗</a>
-        <a class="card-link card-link--alt" href="${iaDownload(item.archive_id, item.ia_file)}" target="_blank" rel="noopener">Download&nbsp;↓</a>
+      <div class="card-body">
+        <div>
+          <h3 class="card-title">${escapeHTML(item.title)}</h3>
+          <p class="card-desc">${escapeHTML(item.description)}</p>
+          <div class="card-meta">
+            <span>${escapeHTML(item.created_year)}</span>
+            ${credit ? `<span>${escapeHTML(credit)}</span>` : ''}
+          </div>
+        </div>
+        <div class="card-footer">
+          <span class="card-license">${escapeHTML(item.cc_license)}</span>
+          <div class="card-actions">
+            <a href="${iaDetails(item.archive_id)}" target="_blank" rel="noopener" aria-label="View ${escapeHTML(item.title)}" title="View">&#8599;</a>
+            <a href="${iaDownload(item.archive_id, item.ia_file)}" target="_blank" rel="noopener" aria-label="Download ${escapeHTML(item.title)}" title="Download">&#8595;</a>
+          </div>
+        </div>
       </div>
     `;
     grid.appendChild(card);

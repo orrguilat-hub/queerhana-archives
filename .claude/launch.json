@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "static-site",
+      "runtimeExecutable": "ruby",
+      "runtimeArgs": ["-run", "-e", "httpd", "/Users/ohohoh/Documents/QHArchive site", "-p", "8420"],
+      "port": 8420
+    }
+  ]
+}
