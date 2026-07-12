@@ -159,7 +159,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .featured p a { text-decoration: underline; }
 .featured p a:hover { color: var(--voltage-pink); }
 .featured .btn {
-  padding: 6px 16px;
+  padding: 6px 16px; align-self: flex-start;
 }
 .featured .btn:hover { background: var(--voltage-pink); color: #fff; border-color: var(--voltage-pink); }
 
