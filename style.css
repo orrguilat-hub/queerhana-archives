@@ -233,9 +233,10 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .type-filters {
   height: 48px; box-sizing: border-box;
   padding: 0 16px;
-  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  display: flex; flex-wrap: nowrap; align-items: center; gap: 8px;
   background: var(--surface-low);
-  overflow-x: auto;
+  overflow-x: auto; overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
 }
 .filter-btn {
   font-size: 10px; font-weight: 700; letter-spacing: 0.05em; line-height: 1;
