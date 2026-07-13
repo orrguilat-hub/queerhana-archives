@@ -155,7 +155,7 @@ document.getElementById('load-more').addEventListener('click', () => {
 
 document.getElementById('filters-toggle').addEventListener('click', () => {
   const toggle = document.getElementById('filters-toggle');
-  const filters = document.getElementById('adv-filters');
+  const filters = document.getElementById('collapsible-filters');
   const isOpen = filters.classList.toggle('open');
   toggle.setAttribute('aria-expanded', isOpen);
 });

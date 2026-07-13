@@ -87,36 +87,38 @@
         <span class="item-count" id="item-count"></span>
       </div>
 
-      <button class="filters-toggle" id="filters-toggle" aria-expanded="false" aria-controls="adv-filters">Filters <span class="chevron">&#8964;</span></button>
+      <button class="filters-toggle" id="filters-toggle" aria-expanded="false" aria-controls="collapsible-filters">Filters <span class="chevron">&#8964;</span></button>
 
-      <div class="adv-filters" id="adv-filters">
-        <div class="adv-field">
-          <span class="adv-label">Years:</span>
-          <input type="text" id="filter-year-start" placeholder="Start" class="adv-input adv-input--narrow">
-          <span class="adv-dash">—</span>
-          <input type="text" id="filter-year-end" placeholder="End" class="adv-input adv-input--narrow">
+      <div class="collapsible-filters" id="collapsible-filters">
+        <div class="adv-filters">
+          <div class="adv-field">
+            <span class="adv-label">Years:</span>
+            <input type="text" id="filter-year-start" placeholder="Start" class="adv-input adv-input--narrow">
+            <span class="adv-dash">—</span>
+            <input type="text" id="filter-year-end" placeholder="End" class="adv-input adv-input--narrow">
+          </div>
+          <div class="adv-field">
+            <span class="adv-label">Event:</span>
+            <input type="text" id="filter-event" placeholder="Filter by event..." class="adv-input">
+          </div>
+          <div class="adv-field">
+            <span class="adv-label">Location:</span>
+            <input type="text" id="filter-location" placeholder="Filter by location..." class="adv-input">
+          </div>
+          <div class="adv-field">
+            <span class="adv-label">Credit:</span>
+            <input type="text" id="filter-credit" placeholder="Filter by credit..." class="adv-input">
+          </div>
+          <button class="btn btn-primary adv-apply" id="apply-filters">Apply Filters</button>
         </div>
-        <div class="adv-field">
-          <span class="adv-label">Event:</span>
-          <input type="text" id="filter-event" placeholder="Filter by event..." class="adv-input">
-        </div>
-        <div class="adv-field">
-          <span class="adv-label">Location:</span>
-          <input type="text" id="filter-location" placeholder="Filter by location..." class="adv-input">
-        </div>
-        <div class="adv-field">
-          <span class="adv-label">Credit:</span>
-          <input type="text" id="filter-credit" placeholder="Filter by credit..." class="adv-input">
-        </div>
-        <button class="btn btn-primary adv-apply" id="apply-filters">Apply Filters</button>
+
+        <nav class="type-filters" aria-label="Filter archive items">
+          <button class="filter-btn active" data-filter="all">All Objects</button>
+          <button class="filter-btn" data-filter="image">Photography</button>
+          <button class="filter-btn" data-filter="video">Video</button>
+          <button class="filter-btn" data-filter="pdf">Text &amp; Documents</button>
+        </nav>
       </div>
-
-      <nav class="type-filters" aria-label="Filter archive items">
-        <button class="filter-btn active" data-filter="all">All Objects</button>
-        <button class="filter-btn" data-filter="image">Photography</button>
-        <button class="filter-btn" data-filter="video">Video</button>
-        <button class="filter-btn" data-filter="pdf">Text &amp; Documents</button>
-      </nav>
     </div>
 
     <section class="grid" id="catalog-grid" aria-live="polite">
