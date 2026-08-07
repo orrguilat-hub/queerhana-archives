@@ -6,3 +6,13 @@ Design/
 
 # OS cruft
 .DS_Store
+
+# Secrets / credentials — never commit
+.env
+.env.*
+credentials
+credentials.*
+*.key
+.netrc
+ia.ini
+.ia
