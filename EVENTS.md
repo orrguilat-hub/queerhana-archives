@@ -27,13 +27,17 @@ August), the EXIF date is treated as a camera misdate, the items stay with
 their occasion, and their `created_year` is left blank rather than recording
 the false year.
 
+A caution on reading the original notes: a month name inside a note is a date,
+not a description. The note "Mini Queerhana Purim March 2003" names Purim in
+March 2003 — it does not describe a march.
+
 ## Canonical names
 
 | Canonical name | Items | EXIF date(s) |
 |---|---|---|
 | `no-pride queerhana under the bridge, 2003` | 123 | 2003-06-27 |
 | `queerhana furry tale, june 2005` | 40 | 2005-06-14 |
-| `mini queerhana purim march, march 2003` | 16 | 2003-03-21 (14 items; 2 more carry a camera misdate of 2004-08-05 and are left without a `created_year`) |
+| `mini queerhana purim, march 2003` | 16 | 2003-03-21 (14 items; 2 more carry a camera misdate of 2004-08-05 and are left without a `created_year`) |
 | `allenbeach reclaim the streets action, 8 march 2003` | 13 | 2003-03-08 |
 | `allenbeach reclaim the streets action, 15-18 march 2003` | 9 | 2003-03-15 .. 2003-03-18 |
 | `pink communities coalition, 2009` | 5 | 2009-08-05 (2 of 5; rest undated) |
@@ -52,7 +56,7 @@ the false year.
 | `allenbeach reclaim the streets action, 2002` | split into `8 march 2003` and `15-18 march 2003` |
 | `no-pride queerhana under the bridge, 2002` | `no-pride queerhana under the bridge, 2003` |
 | `queerhana furry tale, july 2006` | `queerhana furry tale, june 2005` |
-| `mini queerhana purim march, 2003` | `mini queerhana purim march, march 2003` (year corrected; not split — see the misdate note above) |
+| `mini queerhana purim march, 2003` | `mini queerhana purim, march 2003` (the trailing "march" in the original note was the month, not a procession; not split — see the misdate note above) |
 | `haritz parties` | split into `december 2008` and `february 2009` |
 
 ## Blank event field
