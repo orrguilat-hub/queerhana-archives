@@ -16,10 +16,16 @@ date was taken as authoritative and the name corrected. Several brand names
 turned out to cover more than one occasion — separate dates months or years
 apart sharing a name — and have been split accordingly.
 
-Splitting rule: photographs from the same day, or from directly consecutive
-days (a multi-day festival), are one occasion. A larger gap is a separate
-occasion. Occasion names carry month and year; where two occasions of the same
-brand fall in the same month, the day is included.
+Splitting rule: photographs within two to three days of each other are one
+occasion (a multi-day festival or a run of related actions). A larger gap is a
+separate occasion. Occasion names carry month and year; where two occasions of
+the same brand fall in the same month, the day or day range is included.
+
+EXIF is authoritative for dates, but not blindly: where a camera's date is
+plainly wrong against what the event itself is (a Purim march cannot fall in
+August), the EXIF date is treated as a camera misdate, the items stay with
+their occasion, and their `created_year` is left blank rather than recording
+the false year.
 
 ## Canonical names
 
@@ -27,14 +33,12 @@ brand fall in the same month, the day is included.
 |---|---|---|
 | `no-pride queerhana under the bridge, 2003` | 123 | 2003-06-27 |
 | `queerhana furry tale, june 2005` | 40 | 2005-06-14 |
-| `mini queerhana purim march, march 2003` | 14 | 2003-03-21 |
+| `mini queerhana purim march, march 2003` | 16 | 2003-03-21 (14 items; 2 more carry a camera misdate of 2004-08-05 and are left without a `created_year`) |
 | `allenbeach reclaim the streets action, 8 march 2003` | 13 | 2003-03-08 |
-| `allenbeach reclaim the streets action, 15 march 2003` | 5 | 2003-03-15 |
+| `allenbeach reclaim the streets action, 15-18 march 2003` | 9 | 2003-03-15 .. 2003-03-18 |
 | `pink communities coalition, 2009` | 5 | 2009-08-05 (2 of 5; rest undated) |
-| `allenbeach reclaim the streets action, 18 march 2003` | 4 | 2003-03-18 |
 | `queerhana four-day festival, september 2002` | 4 | 2002-09-28 |
 | `this is a free zone, ngbk berlin, 2017` | 3 | no EXIF (year from the material itself) |
-| `mini queerhana purim march, august 2004` | 2 | 2004-08-05 |
 | `timeout photoshoot (unpublished)` | 2 | 2006-12-24 |
 | `fun fun funzine urban festival` | 1 | no EXIF |
 | `haritz parties, december 2008` | 1 | 2008-12-27 |
@@ -45,10 +49,10 @@ brand fall in the same month, the day is included.
 
 | Previous name | Corrected to |
 |---|---|
-| `allenbeach reclaim the streets action, 2002` | split into `8 march 2003`, `15 march 2003`, `18 march 2003` |
+| `allenbeach reclaim the streets action, 2002` | split into `8 march 2003` and `15-18 march 2003` |
 | `no-pride queerhana under the bridge, 2002` | `no-pride queerhana under the bridge, 2003` |
 | `queerhana furry tale, july 2006` | `queerhana furry tale, june 2005` |
-| `mini queerhana purim march, 2003` | split into `march 2003` and `august 2004` |
+| `mini queerhana purim march, 2003` | `mini queerhana purim march, march 2003` (year corrected; not split — see the misdate note above) |
 | `haritz parties` | split into `december 2008` and `february 2009` |
 
 ## Blank event field
