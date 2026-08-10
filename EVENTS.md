@@ -76,3 +76,21 @@ outranks both EXIF and the notes.
   place them on an occasion: `atlantis-flyer-all.jpg`, `Haritz/shana pizoz1.jpg`,
   `Haritz/haritz_Loop_2.MPG`. These need a human to assign an occasion —
   do not guess one from folder name.
+
+## The location field
+
+`location` records **where an item was made** — where the photograph was
+taken, where the document was written or issued. It is a fact about the item,
+not about its content.
+
+A place used as a **subject tag** means something different: that the place is
+what the item is *about*. A photograph taken in Tel Aviv is not tagged
+`tel aviv` — the location field already carries that. An essay arguing about
+Tel Aviv's public space, or an invitation to a Berlin venue, is tagged,
+because there the place is the subject.
+
+Where the two coincide, the location field carries it and the tag does not.
+Never infer a location from a folder name. Where the place an item was made is
+not established, leave the field blank — a blank field is correct, a wrong one
+is not.
+
