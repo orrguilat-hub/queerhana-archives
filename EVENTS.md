@@ -31,11 +31,19 @@ A caution on reading the original notes: a month name inside a note is a date,
 not a description. The note "Mini Queerhana Purim March 2003" names Purim in
 March 2003 — it does not describe a march.
 
+**Independent corroboration for one occasion.** `no-pride queerhana under the
+bridge` is dated by more than EXIF: in `wetransfer-024eb0(1)/DSCN0826a.jpg` the
+date is spray-painted on the bridge pier itself, reading קוויר חנה 6.2003
+(Hebrew: "Queerhana 6.2003"). This matches the EXIF capture date of 2003-06-27
+on all 123 items in the occasion, and contradicts the "2002" recorded in the
+original review note. Where a date is written into the photograph like this it
+outranks both EXIF and the notes.
+
 ## Canonical names
 
 | Canonical name | Items | EXIF date(s) |
 |---|---|---|
-| `no-pride queerhana under the bridge, 2003` | 123 | 2003-06-27 |
+| `no-pride queerhana under the bridge, 2003` | 123 | 2003-06-27 (corroborated in-frame — see below) |
 | `queerhana furry tale, june 2005` | 40 | 2005-06-14 |
 | `mini queerhana purim, march 2003` | 16 | 2003-03-21 (14 items; 2 more carry a camera misdate of 2004-08-05 and are left without a `created_year`) |
 | `allenbeach reclaim the streets action, 8 march 2003` | 13 | 2003-03-08 |
@@ -54,7 +62,7 @@ March 2003 — it does not describe a march.
 | Previous name | Corrected to |
 |---|---|
 | `allenbeach reclaim the streets action, 2002` | split into `8 march 2003` and `15-18 march 2003` |
-| `no-pride queerhana under the bridge, 2002` | `no-pride queerhana under the bridge, 2003` |
+| `no-pride queerhana under the bridge, 2002` | `no-pride queerhana under the bridge, 2003` (corroborated by text in the photographs, not EXIF alone) |
 | `queerhana furry tale, july 2006` | `queerhana furry tale, june 2005` |
 | `mini queerhana purim march, 2003` | `mini queerhana purim, march 2003` (the trailing "march" in the original note was the month, not a procession; not split — see the misdate note above) |
 | `haritz parties` | split into `december 2008` and `february 2009` |
