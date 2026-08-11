@@ -127,46 +127,93 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   .manifesto p { font-size: 22px; }
 }
 
-/* ---------- Further reading (featured) ---------- */
-.featured {
-  display: grid; grid-template-columns: 1fr;
+/* ---------- Featured reference (book / documentary / original site) ---------- */
+.featured-ref {
   border-bottom: 1px solid var(--ink);
-  background: var(--surface-low);
-}
-.featured > div {
+  background: var(--surface-low); /* nearest existing var to mockup's #FCFAED */
   padding: 32px 16px;
+  display: flex; flex-direction: column; gap: 40px;
+}
+
+.featured-card {
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  display: flex; flex-direction: column;
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+.featured-media {
+  position: relative;
   border-bottom: 1px solid var(--ink);
 }
-.featured > div:last-child { border-bottom: none; }
-.featured .label {
-  font-size: 10px; font-weight: 400; color: var(--voltage-pink);
-  text-transform: uppercase; margin-bottom: 4px;
+/* The ratio box is a plain (non-flex-item) block nested one level inside the
+   flex item, not the flex item itself. Testing showed both aspect-ratio and
+   the padding-bottom percentage trick resolve incorrectly when applied
+   directly to a flex item (aspect-ratio didn't constrain height when the
+   item's width came from column-stretch; padding-bottom resolved against the
+   flex container's width instead of the item's own 42% flex-basis in the
+   row layout). Nesting it isolates the ratio math from either flex context,
+   so it's correct -- and identical -- at every width. */
+.featured-media-frame {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 66.6667%; /* 3:2, same ratio on all three cards at every width */
+  overflow: hidden;
+  background: var(--ink);
 }
-.featured-body { display: flex; align-items: flex-start; gap: 24px; }
-.featured-thumb {
-  flex-shrink: 0; width: 128px; height: 128px;
-  object-fit: cover; border: 1px solid var(--ink); background: var(--ink);
+.featured-media-frame img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;
 }
-.featured-text {
-  display: flex; flex-direction: column; justify-content: center;
-  height: 128px;
+
+.featured-badge {
+  position: absolute; top: -10px; left: 12px; z-index: 2;
+  font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em;
+  padding: 3px 8px; border: 1px solid var(--ink); color: var(--ink);
 }
-.featured h3 {
-  font-family: var(--font-display); font-weight: 400; font-size: 20px;
-  text-transform: lowercase; margin: 0 0 8px; line-height: 1;
+.featured-badge--yellow { background: var(--bright-yellow); }
+.featured-badge--pink   { background: var(--voltage-pink); color: #fff; }
+.featured-badge--cyan   { background: var(--cyber-blue); color: #fff; }
+.featured-card--docu .featured-badge { left: auto; right: 12px; }
+
+.featured-content {
+  padding: 24px; flex: 1 1 auto;
+  display: flex; flex-direction: column; gap: 12px;
 }
-.featured p { font-size: 12px; font-weight: 400; line-height: 1.25; margin: 0 0 16px; max-width: 320px; }
-.featured p a { text-decoration: underline; }
-.featured p a:hover { color: var(--voltage-pink); }
-.featured .btn {
-  padding: 6px 16px; align-self: flex-start;
+.featured-content h3 {
+  font-family: var(--font-display); font-weight: 700; font-size: 30px;
+  text-transform: lowercase; line-height: 1.05; margin: 0;
 }
-.featured .btn:hover { background: var(--voltage-pink); color: #fff; border-color: var(--voltage-pink); }
+.featured-content p { font-size: 13px; line-height: 1.5; margin: 0; max-width: 46ch; }
+.featured-credit { font-size: 10px; color: var(--secondary); margin: -4px 0 0; }
+.featured-link {
+  display: inline-block; align-self: flex-start; margin-top: 4px;
+  font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;
+  text-decoration: none; color: var(--voltage-pink);
+}
+.featured-link:hover { text-decoration: underline; }
+
+.featured-card--site { background: var(--ink); border-right: 6px solid var(--voltage-pink); }
+.featured-card--site .featured-content h3 { color: var(--paper); }
+.featured-card--site .featured-content p { color: rgba(255,255,255,0.85); }
+.featured-card--site .featured-credit { color: rgba(255,255,255,0.5); }
+.featured-card--site .featured-link { color: var(--voltage-pink); }
 
 @media (min-width: 768px) {
-  .featured { grid-template-columns: 1fr 1fr; }
-  .featured > div { padding: 32px; border-bottom: none; }
-  .featured > div:first-child { border-right: 1px solid var(--ink); }
+  .featured-card { flex-direction: row; align-items: flex-start; }
+  .featured-media {
+    flex: 0 0 42%;
+    border-bottom: none; border-right: 1px solid var(--ink);
+  }
+  .featured-card--docu { flex-direction: row-reverse; }
+  .featured-card--docu .featured-media { border-right: none; border-left: 1px solid var(--ink); }
+
+  /* Staggered widths/offsets, not a uniform full-width stack -- book sits left,
+     documentary mirrors it to the right, the site capture centers between them. */
+  .featured-card--book { width: 68%; margin: 0 23% 0 8%; }
+  .featured-card--docu { width: 68%; margin: 0 8% 0 23%; }
+  .featured-card--site { width: 73%; margin: 0 14% 0 13%; }
 }
 
 /* ---------- Rights note (own section, above footer) ---------- */
@@ -349,13 +396,30 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .card-tag.tag-video  { background: var(--cyber-blue); border-color: var(--cyber-blue); }
 .card-tag.tag-pdf    { background: var(--bright-yellow); border-color: var(--bright-yellow); color: var(--ink); }
 
-.card-body { padding: 12px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+.card { cursor: pointer; }
+.card:focus-visible { outline: 2px solid var(--voltage-pink); outline-offset: -2px; }
+.card-body { padding: 12px; flex-grow: 1; display: flex; flex-direction: column; gap: 6px; min-height: 92px; }
 .card-title {
   font-family: var(--font-display); font-weight: 400; font-size: 15px;
-  text-transform: lowercase; line-height: 1.25; margin: 0 0 2px;
+  text-transform: lowercase; line-height: 1.25; margin: 0;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 .card-desc { font-size: 11px; line-height: 1.25; color: rgba(0,0,0,0.8); margin: 0 0 8px; }
+.card-event {
+  font-size: 10px; color: var(--secondary); font-family: var(--font-mono);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
 .card-meta { font-size: 10px; color: var(--secondary); display: flex; flex-direction: column; gap: 2px; }
+.card-tags {
+  display: flex; flex-wrap: wrap; gap: 4px; overflow: hidden; max-height: 40px;
+  margin-top: auto; padding-top: 4px;
+}
+
+.tag-chip {
+  font-size: 9px; font-family: var(--font-mono); text-transform: lowercase;
+  border: 1px solid var(--ink); padding: 2px 6px; color: var(--ink); white-space: nowrap;
+}
 
 .card-footer {
   display: flex; align-items: center; justify-content: space-between;
@@ -371,6 +435,62 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   background: var(--ink); color: var(--paper); text-decoration: none; font-size: 13px;
 }
 .card-actions a:hover { background: var(--voltage-pink); }
+
+/* ---------- Item detail modal ---------- */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.75);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px; z-index: 200;
+}
+.modal-overlay[hidden] { display: none; }
+.modal {
+  background: var(--paper); border: 1px solid var(--ink);
+  width: 100%; max-width: 760px; max-height: 90vh; overflow-y: auto;
+  position: relative; display: flex; flex-direction: column;
+}
+@media (min-width: 700px) { .modal { flex-direction: row; } }
+.modal-close {
+  position: absolute; top: 8px; right: 8px; z-index: 2;
+  width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;
+  background: var(--ink); color: var(--paper); border: none; font-size: 20px; line-height: 1;
+  cursor: pointer;
+}
+.modal-close:hover { background: var(--voltage-pink); }
+.modal-thumb {
+  background: var(--ink); flex: 0 0 auto; display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.modal-thumb img { width: 100%; height: auto; max-height: 50vh; object-fit: contain; display: block; }
+.modal-thumb .excerpt {
+  color: #fff; font-family: var(--font-mono); font-size: 13px; line-height: 1.5;
+  text-align: center; direction: rtl; unicode-bidi: plaintext; padding: 24px;
+}
+.modal-thumb.noimg { min-height: 200px; position: relative; }
+.modal-thumb.noimg::after {
+  content: "no preview";
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; color: var(--secondary);
+  background: repeating-linear-gradient(45deg, rgba(255,255,255,0.06) 0 8px, transparent 8px 16px);
+}
+@media (min-width: 700px) {
+  .modal-thumb { flex: 0 0 42%; }
+  .modal-thumb img { max-height: 90vh; height: 100%; object-fit: cover; }
+}
+.modal-body { padding: 24px; flex: 1 1 auto; min-width: 0; }
+.modal-title {
+  font-family: var(--font-display); font-weight: 400; font-size: 24px;
+  text-transform: lowercase; line-height: 1.2; margin: 0 0 12px;
+}
+.modal-desc { font-size: 13px; line-height: 1.55; margin: 0 0 16px; }
+.modal-fields {
+  font-size: 11px; display: grid; grid-template-columns: auto 1fr; gap: 4px 12px;
+  margin: 0 0 16px;
+}
+.modal-fields dt { font-weight: 700; color: var(--secondary); text-transform: uppercase; letter-spacing: 0.03em; }
+.modal-fields dd { margin: 0; }
+.modal-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 16px; }
+#modal-footer { justify-content: flex-end; }
 
 .empty-msg { font-size: 12px; padding: 32px 16px; grid-column: 1 / -1; }
 

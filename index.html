@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>QueeRhaNA Archives</title>
 <meta name="description" content="A public archive of material from a decade of queer public-space activism, Yaffa-Tel Aviv, 2000s.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://queerhana.org/">
+<meta property="og:title" content="QueeRhaNA Archives">
+<meta property="og:description" content="A public archive of material from a decade of queer public-space activism, Yaffa-Tel Aviv, 2000s.">
+<meta property="og:image" content="https://queerhana.org/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="QueeRhaNA Archives">
+<meta name="twitter:description" content="A public archive of material from a decade of queer public-space activism, Yaffa-Tel Aviv, 2000s.">
+<meta name="twitter:image" content="https://queerhana.org/assets/og-image.png">
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
@@ -51,29 +62,49 @@
     </div>
   </section>
 
-  <section class="featured">
-    <div>
-      <div class="featured-body">
-        <img src="assets/utopia-now-cover.webp" alt="Queerhana: Utopia Now! book cover" class="featured-thumb">
-        <div class="featured-text">
-          <div class="label">Further reading</div>
-          <h3>queerhana: utopia now!</h3>
-          <p>Retrospective book on the movement, published 2017.</p>
-          <a class="btn" href="https://www.beck-shop.de/queerhana/product/25623262" target="_blank" rel="noopener">Order Now</a>
+  <section class="featured-ref" id="featured-reference">
+    <article class="featured-card featured-card--book">
+      <div class="featured-media">
+        <span class="featured-badge featured-badge--yellow">From the Exhibition</span>
+        <div class="featured-media-frame">
+          <img id="featured-img-book" alt="The Queerhana: Utopia Now! book, photographed for the 2017 exhibition." width="600" height="400">
         </div>
       </div>
-    </div>
-    <div>
-      <div class="featured-body">
-        <img src="assets/monsters-superqueers-thumb.png" alt="Nation Monsters and Super Queers poster" class="featured-thumb">
-        <div class="featured-text">
-          <div class="label">Further viewing</div>
-          <h3>nation monsters and super queers</h3>
-          <p>Queerhana documentary short, released 2017, on Vimeo.</p>
-          <a class="btn" href="https://vimeo.com/299985084" target="_blank" rel="noopener">Watch</a>
+      <div class="featured-content">
+        <h3>queerhana: utopia now!</h3>
+        <p>A retrospective book documenting the movement's public-space activism, published alongside the 2017 exhibition.</p>
+        <a class="featured-link" href="https://www.beck-shop.de/queerhana/product/25623262" target="_blank" rel="noopener">View the book &#8599;</a>
+      </div>
+    </article>
+
+    <article class="featured-card featured-card--docu">
+      <div class="featured-media">
+        <span class="featured-badge featured-badge--pink">From the Exhibition</span>
+        <div class="featured-media-frame">
+          <img id="featured-img-docu" alt="Still from Nation Monsters and Super Queers, photographed for the 2017 exhibition." width="600" height="400">
         </div>
       </div>
-    </div>
+      <div class="featured-content">
+        <h3>nation monsters and super queers</h3>
+        <p>A documentary short capturing the collective's politics and queer parties in Israel-Palestine between 2001-2009.</p>
+        <a class="featured-link" href="https://vimeo.com/299985084" target="_blank" rel="noopener">Watch the documentary &#8599;</a>
+      </div>
+    </article>
+
+    <article class="featured-card featured-card--site">
+      <div class="featured-media">
+        <span class="featured-badge featured-badge--cyan">Primary Source</span>
+        <div class="featured-media-frame">
+          <img id="featured-img-site" alt="Screenshot of the Queerhana website as captured by the Internet Archive's Wayback Machine in 2007." width="600" height="400">
+        </div>
+      </div>
+      <div class="featured-content">
+        <h3>the original site</h3>
+        <p>The group's own website as captured by the Internet Archive's Wayback Machine in 2007. Many images and pages are missing — this is normal for web archives of that era.</p>
+        <p class="featured-credit">Original site design: Sighteffect — Nath Rogea + Yael Baba</p>
+        <a class="featured-link" href="https://web.archive.org/web/20070107140652/http://queerhana.org/" target="_blank" rel="noopener">Browse the 2007 capture &#8599;</a>
+      </div>
+    </article>
   </section>
 
   <section id="archive">
@@ -163,10 +194,26 @@
       <span class="lic">site design, curation and original texts under CC BY-NC-SA 4.0, with archived items licensed individually per entry.</span>
     </div>
     <div class="footer-links">
-      <span>Created by <a href="https://www.orrguilat.org/" target="_blank" rel="noopener">Orr Guilat</a></span>
+      <span>Created by <a href="https://en.orrguilat.org/" target="_blank" rel="noopener">Orr Guilat</a></span>
     </div>
   </div>
 </footer>
+
+<div class="modal-overlay" id="item-modal" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="modal-close" id="modal-close" aria-label="Close">&times;</button>
+    <div class="modal-thumb" id="modal-thumb"></div>
+    <div class="modal-body">
+      <h3 class="modal-title" id="modal-title"></h3>
+      <dl class="modal-fields" id="modal-fields"></dl>
+      <div class="modal-tags" id="modal-tags"></div>
+      <p class="modal-desc" id="modal-desc"></p>
+      <div class="card-footer" id="modal-footer">
+        <div class="card-actions" id="modal-actions"></div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>
