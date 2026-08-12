@@ -5,6 +5,13 @@ conventions (ia binary path, config file, subject tags).
 
 Usage:
   PYTHONWARNINGS=ignore python3 scripts/ia-upload-queue.py approved.csv [--delay 240]
+  PYTHONWARNINGS=ignore python3 scripts/ia-upload-queue.py approved.csv --only "path/to/file.jpg"
+
+--only <filepath>: restricts the run to the single row whose filepath column
+exactly matches the given value, and skips every other row -- same code
+path, same license/rights handling, same state/log files, as a batch run.
+This is the supported way to upload one item by hand; it exists so there is
+no reason left to call `ia upload` directly and bypass these guards.
 
 approved.csv columns (header required):
   filepath,title,description,creator,license,subject_tags,event,location,created_year,rights_owner,rights_statement
@@ -168,6 +175,8 @@ def main():
     ap.add_argument("csv_path")
     ap.add_argument("--delay", type=float, default=240.0,
                      help="seconds to wait between successful uploads (default 240)")
+    ap.add_argument("--only", metavar="FILEPATH",
+                     help="upload only the row whose filepath column exactly matches this value")
     args = ap.parse_args()
 
     base_dir = os.path.dirname(os.path.abspath(args.csv_path)) or "."
@@ -178,6 +187,11 @@ def main():
 
     with open(args.csv_path, newline="") as f:
         rows = list(csv.DictReader(f))
+
+    if args.only:
+        rows = [r for r in rows if r["filepath"] == args.only]
+        if not rows:
+            sys.exit(f"--only {args.only!r} matched no row in {args.csv_path}")
 
     for row in rows:
         identifier = identifier_for(row["filepath"])
