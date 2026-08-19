@@ -69,7 +69,7 @@ async function loadCatalog() {
   const res = await fetch('data/catalog.json');
   allItems = await res.json();
   document.getElementById('item-count').textContent = `${allItems.length} items catalogued`;
-  render();
+  applyStateFromURL({ fromPopstate: true });
 }
 
 function matchesSearch(item, term) {
@@ -171,8 +171,11 @@ function render() {
 
 // ---------- Item detail modal ----------
 let lastFocusedEl = null;
+let openItemId = null;
+let modalPushed = false; // true when the open modal's URL entry was pushed by us (safe to history.back() to close)
 
-function openModal(item) {
+function openModal(item, opts = {}) {
+  openItemId = String(item.id);
   const tagLabel = (TYPE_LABELS[item.file_type] || item.file_type).toUpperCase();
   const tagClass = `tag-${item.file_type}`;
 
@@ -241,17 +244,31 @@ function openModal(item) {
   modal.hidden = false;
   document.body.style.overflow = 'hidden';
   document.getElementById('modal-close').focus();
+
+  if (!opts.fromPopstate) {
+    modalPushed = pushURL();
+  }
 }
 
-function closeModal() {
+function closeModal(opts = {}) {
   const modal = document.getElementById('item-modal');
   if (modal.hidden) return;
   modal.hidden = true;
   document.body.style.overflow = '';
   if (lastFocusedEl) lastFocusedEl.focus();
+  openItemId = null;
+
+  if (!opts.fromPopstate) {
+    if (modalPushed) {
+      history.back(); // triggers popstate, which closes for real without pushing again
+    } else {
+      pushURL(); // nothing of ours to go back to (e.g. arrived via a direct item link)
+    }
+  }
+  modalPushed = false;
 }
 
-document.getElementById('modal-close').addEventListener('click', closeModal);
+document.getElementById('modal-close').addEventListener('click', () => closeModal());
 document.getElementById('item-modal').addEventListener('click', (e) => {
   if (e.target.id === 'item-modal') closeModal();
 });
@@ -266,6 +283,82 @@ function escapeHTML(str) {
   return div.innerHTML;
 }
 
+// ---------- URL state: deep links + shareable filters ----------
+// One layer, used for two things: opening a specific item's modal directly
+// (?item=<id>, back/forward navigates the modal open/closed), and restoring
+// search/filter state from a shared link. Filter changes use replaceState
+// (typing shouldn't spam browser history); only modal open/close pushes a
+// new history entry.
+function paramsFromState() {
+  const params = new URLSearchParams();
+  if (searchTerm) params.set('search', searchTerm);
+  if (currentFilter && currentFilter !== 'all') params.set('type', currentFilter);
+  if (advFilters.yearStart) params.set('yearStart', advFilters.yearStart);
+  if (advFilters.yearEnd) params.set('yearEnd', advFilters.yearEnd);
+  if (advFilters.event) params.set('event', advFilters.event);
+  if (advFilters.location) params.set('location', advFilters.location);
+  if (advFilters.credit) params.set('credit', advFilters.credit);
+  if (openItemId) params.set('item', openItemId);
+  return params;
+}
+
+function urlForState() {
+  const qs = paramsFromState().toString();
+  return location.pathname + (qs ? '?' + qs : '') + location.hash;
+}
+
+function currentFullURL() {
+  return location.pathname + location.search + location.hash;
+}
+
+function replaceURL() {
+  const url = urlForState();
+  if (url !== currentFullURL()) history.replaceState(null, '', url);
+}
+
+function pushURL() {
+  const url = urlForState();
+  if (url === currentFullURL()) return false;
+  history.pushState(null, '', url);
+  return true;
+}
+
+function applyStateFromURL(opts = {}) {
+  const params = new URLSearchParams(location.search);
+  searchTerm = params.get('search') || '';
+  currentFilter = params.get('type') || 'all';
+  advFilters = {
+    yearStart: params.get('yearStart') || '',
+    yearEnd: params.get('yearEnd') || '',
+    event: (params.get('event') || '').toLowerCase(),
+    location: (params.get('location') || '').toLowerCase(),
+    credit: (params.get('credit') || '').toLowerCase(),
+  };
+
+  document.getElementById('search-input').value = searchTerm;
+  document.getElementById('filter-year-start').value = advFilters.yearStart;
+  document.getElementById('filter-year-end').value = advFilters.yearEnd;
+  document.getElementById('filter-event').value = params.get('event') || '';
+  document.getElementById('filter-location').value = params.get('location') || '';
+  document.getElementById('filter-credit').value = params.get('credit') || '';
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.filter === currentFilter);
+  });
+
+  visibleCount = PAGE_SIZE;
+  render();
+
+  const itemId = params.get('item');
+  const item = itemId ? allItems.find(i => String(i.id) === itemId) : null;
+  if (item) {
+    openModal(item, { fromPopstate: true });
+  } else {
+    closeModal({ fromPopstate: true });
+  }
+}
+
+window.addEventListener('popstate', () => applyStateFromURL({ fromPopstate: true }));
+
 document.querySelectorAll('.filter-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelector('.filter-btn.active').classList.remove('active');
@@ -273,6 +366,7 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
     currentFilter = btn.dataset.filter;
     visibleCount = PAGE_SIZE;
     render();
+    replaceURL();
   });
 });
 
@@ -280,6 +374,7 @@ document.getElementById('search-input').addEventListener('input', (e) => {
   searchTerm = e.target.value;
   visibleCount = PAGE_SIZE;
   render();
+  replaceURL();
 });
 
 document.getElementById('apply-filters').addEventListener('click', () => {
@@ -292,6 +387,7 @@ document.getElementById('apply-filters').addEventListener('click', () => {
   };
   visibleCount = PAGE_SIZE;
   render();
+  replaceURL();
 });
 
 document.getElementById('load-more').addEventListener('click', () => {
