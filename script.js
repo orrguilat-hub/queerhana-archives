@@ -232,7 +232,17 @@ function openModal(item, opts = {}) {
   document.getElementById('modal-tags').innerHTML = tags
     .map(t => `<span class="tag-chip">${escapeHTML(t)}</span>`).join('');
 
-  document.getElementById('modal-desc').textContent = item.description || '';
+  // Observational description stays collapsed by default -- fact fields
+  // above (event/location/date/credit) are the archivist's own information;
+  // this is model-generated visual description, not a claim the archive
+  // is making about who's in the frame. Reset to collapsed on every open.
+  const descEl = document.getElementById('modal-desc');
+  const descToggle = document.getElementById('modal-desc-toggle');
+  descEl.textContent = item.description || '';
+  descEl.hidden = true;
+  descToggle.setAttribute('aria-expanded', 'false');
+  descToggle.setAttribute('aria-label', 'Show description');
+  descToggle.hidden = !item.description;
 
   document.getElementById('modal-actions').innerHTML = `
     <a href="${iaDetails(item.archive_id)}" target="_blank" rel="noopener" aria-label="View ${escapeHTML(item.title)} on the Internet Archive" title="View">&#8599;</a>
@@ -267,6 +277,27 @@ function closeModal(opts = {}) {
   }
   modalPushed = false;
 }
+
+function toggleDescription() {
+  const descEl = document.getElementById('modal-desc');
+  const toggle = document.getElementById('modal-desc-toggle');
+  const nowShown = descEl.hidden; // about to become the new state
+  descEl.hidden = !nowShown;
+  toggle.setAttribute('aria-expanded', String(nowShown));
+  toggle.setAttribute('aria-label', nowShown ? 'Hide description' : 'Show description');
+}
+const modalDescToggleEl = document.getElementById('modal-desc-toggle');
+modalDescToggleEl.addEventListener('click', toggleDescription);
+// Native <button> already activates on Enter/Space via the browser's own
+// default action on the click event above -- this handler is redundant in
+// every real browser, kept only as explicit belt-and-suspenders since it
+// costs nothing and makes the behavior independently verifiable.
+modalDescToggleEl.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar') {
+    e.preventDefault();
+    toggleDescription();
+  }
+});
 
 document.getElementById('modal-close').addEventListener('click', () => closeModal());
 document.getElementById('item-modal').addEventListener('click', (e) => {
