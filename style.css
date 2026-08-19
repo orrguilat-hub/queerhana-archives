@@ -410,6 +410,8 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   font-size: 10px; color: var(--secondary); font-family: var(--font-mono);
   white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
+a.card-event { text-decoration: none; display: block; }
+a.card-event:hover, a.card-event:focus-visible { color: var(--voltage-pink); text-decoration: underline; }
 .card-meta { font-size: 10px; color: var(--secondary); display: flex; flex-direction: column; gap: 2px; }
 .card-tags {
   display: flex; flex-wrap: wrap; gap: 4px; overflow: hidden; max-height: 40px;
@@ -584,3 +586,46 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   .load-more .chevron { animation: none; }
   .hero-logo { animation: none; }
 }
+
+/* ---------- Events page (finding aid) ---------- */
+.events-intro { padding: 48px 16px 24px; max-width: 720px; }
+.events-intro h1 {
+  font-family: var(--font-display); font-weight: 700; font-size: 40px;
+  text-transform: lowercase; margin: 0 0 16px;
+}
+.events-intro p { font-size: 14px; line-height: 1.6; margin: 0; }
+
+.events-list {
+  display: grid; grid-template-columns: 1fr;
+  border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink);
+}
+.event-card { padding: 20px 16px; border-bottom: 1px solid var(--ink); }
+.event-card:last-child { border-bottom: none; }
+.event-card h2 { font-size: 16px; font-weight: 400; margin: 0 0 4px; }
+.event-card h2 a {
+  font-family: var(--font-display); text-transform: lowercase;
+  color: var(--ink); text-decoration: none;
+}
+.event-card h2 a:hover, .event-card h2 a:focus-visible { color: var(--voltage-pink); text-decoration: underline; }
+.event-card-count {
+  font-size: 10px; color: var(--secondary); text-transform: uppercase; letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+.event-card-desc { font-size: 13px; line-height: 1.55; margin: 0; max-width: 68ch; }
+
+@media (min-width: 768px) {
+  .events-list { grid-template-columns: 1fr 1fr; }
+  .event-card { border-right: 1px solid var(--ink); }
+  .event-card:nth-child(even) { border-right: none; }
+}
+
+/* ---------- Event header (shown when results are filtered to one event) ---------- */
+.event-header {
+  padding: 20px 16px; border-bottom: 1px solid var(--ink);
+  background: var(--surface-low);
+}
+.event-header h2 {
+  font-family: var(--font-display); font-weight: 700; font-size: 20px;
+  text-transform: lowercase; margin: 0 0 8px;
+}
+.event-header p { font-size: 13px; line-height: 1.55; margin: 0; max-width: 68ch; }

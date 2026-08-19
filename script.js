@@ -60,14 +60,19 @@ const TYPE_LABELS = {
 const PAGE_SIZE = 8;
 
 let allItems = [];
+let eventsData = {};
 let currentFilter = 'all';
 let searchTerm = '';
 let visibleCount = PAGE_SIZE;
 let advFilters = { yearStart: '', yearEnd: '', event: '', location: '', credit: '' };
 
 async function loadCatalog() {
-  const res = await fetch('data/catalog.json');
-  allItems = await res.json();
+  const [catalogRes, eventsRes] = await Promise.all([
+    fetch('data/catalog.json'),
+    fetch('data/events.json'),
+  ]);
+  allItems = await catalogRes.json();
+  eventsData = await eventsRes.json();
   document.getElementById('item-count').textContent = `${allItems.length} items catalogued`;
   applyStateFromURL({ fromPopstate: true });
 }
@@ -114,9 +119,37 @@ function getFilteredItems() {
     .filter(matchesAdvanced);
 }
 
+function findCanonicalEvent(filterValue) {
+  if (!filterValue) return null;
+  const target = filterValue.trim().toLowerCase();
+  return Object.keys(eventsData).find(k => k.toLowerCase() === target) || null;
+}
+
+function renderEventHeader() {
+  const container = document.getElementById('event-header');
+  const key = findCanonicalEvent(advFilters.event);
+  const description = key && (eventsData[key].description || '').trim();
+  // No header at all when there's no description yet -- an empty header
+  // block would be worse than none. The event name is already visible in
+  // the filter input and on every card.
+  container.innerHTML = description
+    ? `<div class="event-header"><h2>${escapeHTML(key)}</h2><p>${escapeHTML(description)}</p></div>`
+    : '';
+}
+
+function filterByEvent(eventName) {
+  document.getElementById('filter-event').value = eventName;
+  advFilters.event = eventName.toLowerCase();
+  visibleCount = PAGE_SIZE;
+  render();
+  replaceURL();
+  document.getElementById('archive').scrollIntoView();
+}
+
 function render() {
   const grid = document.getElementById('catalog-grid');
   grid.innerHTML = '';
+  renderEventHeader();
 
   const items = getFilteredItems();
   const shown = items.slice(0, visibleCount);
@@ -154,7 +187,7 @@ function render() {
       ${thumbHTML}
       <div class="card-body">
         <h3 class="card-title">${escapeHTML(item.title)}</h3>
-        ${item.event ? `<div class="card-event">${escapeHTML(item.event)}</div>` : ''}
+        ${item.event ? `<a href="index.html?event=${encodeURIComponent(item.event)}#archive" class="card-event">${escapeHTML(item.event)}</a>` : ''}
         ${tagsHTML}
       </div>
     `;
@@ -162,6 +195,17 @@ function render() {
     card.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(item); }
     });
+    const eventLink = card.querySelector('.card-event');
+    if (eventLink) {
+      eventLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        filterByEvent(item.event);
+      });
+      // Stop Enter on the link from also bubbling into the card's own
+      // keydown handler (which would open the modal at the same time).
+      eventLink.addEventListener('keydown', (e) => e.stopPropagation());
+    }
     grid.appendChild(card);
   });
 
