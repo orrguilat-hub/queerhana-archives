@@ -215,11 +215,11 @@ function render() {
 
 // ---------- Item detail modal ----------
 let lastFocusedEl = null;
-let openItemId = null;
+let openItemId = null; // holds an archive_id -- stable across catalog rebuilds, unlike the numeric id
 let modalPushed = false; // true when the open modal's URL entry was pushed by us (safe to history.back() to close)
 
 function openModal(item, opts = {}) {
-  openItemId = String(item.id);
+  openItemId = item.archive_id;
   const tagLabel = (TYPE_LABELS[item.file_type] || item.file_type).toUpperCase();
   const tagClass = `tag-${item.file_type}`;
 
@@ -424,7 +424,7 @@ function applyStateFromURL(opts = {}) {
   render();
 
   const itemId = params.get('item');
-  const item = itemId ? allItems.find(i => String(i.id) === itemId) : null;
+  const item = itemId ? allItems.find(i => i.archive_id === itemId) : null;
   if (item) {
     openModal(item, { fromPopstate: true });
   } else {
