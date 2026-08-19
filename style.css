@@ -461,6 +461,7 @@ a:focus-visible, button:focus-visible, input:focus-visible {
   position: relative;
 }
 .modal-thumb img { width: 100%; height: auto; max-height: 50vh; object-fit: contain; display: block; }
+.modal-thumb img.modal-thumb-loading { filter: blur(6px); transition: filter 0.2s; }
 .modal-thumb .excerpt {
   color: #fff; font-family: var(--font-mono); font-size: 13px; line-height: 1.5;
   text-align: center; direction: rtl; unicode-bidi: plaintext; padding: 24px;

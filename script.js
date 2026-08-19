@@ -183,8 +183,33 @@ function openModal(item) {
     thumbEl.innerHTML = `${tagBadge}<p class="excerpt">${escapeHTML(item.excerpt)}</p>`;
   } else {
     thumbEl.className = 'modal-thumb';
-    thumbEl.innerHTML = `${tagBadge}<img src="${iaThumb(item.archive_id)}" alt="${escapeHTML(item.title)}"
-      onerror="this.closest('.modal-thumb').classList.add('noimg'); this.remove();">`;
+    thumbEl.innerHTML = tagBadge;
+    const img = document.createElement('img');
+    img.alt = item.title || '';
+    img.src = iaThumb(item.archive_id);
+    img.addEventListener('error', () => {
+      thumbEl.classList.add('noimg');
+      img.remove();
+    });
+    thumbEl.appendChild(img);
+
+    // The thumbnail above is IA's small services/img preview -- swap it for
+    // the actual full-resolution original once that's loaded, so the modal
+    // never permanently shows a lower-res image than the real file. Only
+    // for file_type 'image': video/pdf originals aren't renderable as <img>,
+    // and their download link already points at the real file.
+    if (item.file_type === 'image' && item.ia_file) {
+      img.classList.add('modal-thumb-loading');
+      const fullRes = new Image();
+      fullRes.onload = () => {
+        img.src = fullRes.src;
+        img.classList.remove('modal-thumb-loading');
+      };
+      fullRes.onerror = () => {
+        img.classList.remove('modal-thumb-loading');
+      };
+      fullRes.src = iaDownload(item.archive_id, item.ia_file);
+    }
   }
 
   document.getElementById('modal-title').textContent = item.title || '';
