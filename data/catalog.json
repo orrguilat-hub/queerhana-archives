@@ -32,22 +32,6 @@
     "subject_tags": "stage; performance; microphone; violin; projection; music"
   },
   {
-    "id": "11",
-    "archive_id": "queerhana-coalition-statement-2009",
-    "ia_file": "coalition-statement.odt",
-    "file_type": "pdf",
-    "title": "Statement of Intent (2009)",
-    "description": "Pink Communities Coalition statement of intent, dated 04/08/2009.",
-    "created_year": "2009",
-    "credit_text": "Pink Communities Coalition",
-    "event": "",
-    "location": "",
-    "excerpt": "אנחנו, פעילות ופעילים ממגוון הקהילות הוורודות, רוצות להגיד שאנחנו מפחדות.",
-    "cc_license": "CC BY-NC-SA 4.0",
-    "rights_owner": "UNCONFIRMED",
-    "context_note": ""
-  },
-  {
     "id": "13",
     "archive_id": "queerhana-atlantis-flyer-all",
     "ia_file": "__ia_thumb.jpg",
@@ -3836,6 +3820,23 @@
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "third party",
     "subject_tags": "outdoor; party; crowd; daytime",
+    "context_note": ""
+  },
+  {
+    "id": "238",
+    "archive_id": "queerhana-coalition-statement-2009",
+    "ia_file": "__ia_thumb.jpg",
+    "file_type": "pdf",
+    "title": "pink communities coalition: statement of intent (2009)",
+    "description": "Pink Communities Coalition statement of intent, dated 04/08/2009. QueeRhaNA Archives.",
+    "created_year": "",
+    "credit_text": "Pink Communities Coalition",
+    "event": "",
+    "location": "",
+    "cc_license": "CC BY-NC-SA 4.0",
+    "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "rights_owner": "",
+    "subject_tags": "hebrew text; ephemera; article; tel aviv",
     "context_note": ""
   }
 ]
