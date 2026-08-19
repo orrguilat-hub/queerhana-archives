@@ -1,37 +1,5 @@
 [
   {
-    "id": "2",
-    "archive_id": "queerhana-haritz-loop-2",
-    "ia_file": "haritz-loop-2.mpg",
-    "file_type": "video",
-    "title": "animated hebrew title loop",
-    "description": "A looping animated graphic of four Hebrew letters in white striped outline on black, throwing long streaked rays of white and orange light that sweep across the frame. The lettering is not legible.",
-    "created_year": "",
-    "credit_text": "Orr Guilat",
-    "event": "",
-    "location": "",
-    "cc_license": "CC BY-NC-SA 4.0",
-    "rights_owner": "UNCONFIRMED",
-    "context_note": "",
-    "subject_tags": "party; music; hebrew text; illustration; night"
-  },
-  {
-    "id": "4",
-    "archive_id": "queerhana-haritz-aali",
-    "ia_file": "haritz-aali.jpg",
-    "file_type": "image",
-    "title": "on stage with a microphone",
-    "description": "Three people stand at the front of a stage, one holding a microphone with a raised hand, with a fourth playing a violin behind them. Large Hebrew letters projected on the backdrop are cropped and not legible; the image carries an “Activestills.org” watermark.",
-    "created_year": "2009",
-    "credit_text": "Activestills",
-    "event": "haritz parties, february 2009",
-    "location": "",
-    "cc_license": "CC BY-NC-SA 4.0",
-    "rights_owner": "UNCONFIRMED",
-    "context_note": "",
-    "subject_tags": "stage; performance; microphone; violin; projection; music"
-  },
-  {
     "id": "13",
     "archive_id": "queerhana-atlantis-flyer-all",
     "ia_file": "__ia_thumb.jpg",
@@ -3837,6 +3805,40 @@
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "",
     "subject_tags": "hebrew text; ephemera; article; tel aviv",
+    "context_note": ""
+  },
+  {
+    "id": "239",
+    "archive_id": "queerhana-haritz-loop-2",
+    "ia_file": "__ia_thumb.jpg",
+    "file_type": "video",
+    "title": "Haritz (loop)",
+    "description": "Video from the QueeRhaNA Archives of early-2000s queer public-space activism, Tel Aviv.",
+    "created_year": "",
+    "credit_text": "Orr Guilat",
+    "event": "haritz parties, december 2008",
+    "location": "Tel Aviv-Yaffo",
+    "cc_license": "CC BY-NC-SA 4.0",
+    "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "rights_owner": "Orr Guilat",
+    "subject_tags": "Queerhana; queer activism; Tel Aviv; LGBTQ",
+    "context_note": ""
+  },
+  {
+    "id": "240",
+    "archive_id": "queerhana-haritz-aali",
+    "ia_file": "__ia_thumb.jpg",
+    "file_type": "image",
+    "title": "Queerhana performance",
+    "description": "Performance photograph from the QueeRhaNA Archives, Tel Aviv. Photo: Activestills.",
+    "created_year": "",
+    "credit_text": "Activestills",
+    "event": "haritz parties, february 2009",
+    "location": "Tel Aviv-Yaffo",
+    "cc_license": "CC BY-NC-SA 4.0",
+    "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "rights_owner": "Orr Guilat",
+    "subject_tags": "Queerhana; queer activism; Tel Aviv; LGBTQ",
     "context_note": ""
   }
 ]
