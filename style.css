@@ -128,6 +128,19 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 }
 
 /* ---------- Featured reference (book / documentary / original site) ---------- */
+.featured-intro h2 {
+  font-family: var(--font-display); font-weight: 700; font-size: 22px;
+  text-transform: lowercase; margin: 0 0 24px;
+  border-left: 4px solid var(--voltage-pink); padding-left: 16px;
+}
+.featured-intro h2 em { font-style: normal; } /* lowercase house style already signals the title; no italic needed */
+.featured-intro p { font-size: 18px; line-height: 1.625; max-width: 65ch; margin: 0 0 32px; }
+
+@media (min-width: 768px) {
+  .featured-intro h2 { font-size: 28px; }
+  .featured-intro p { font-size: 22px; }
+}
+
 .featured-ref {
   border-bottom: 1px solid var(--ink);
   background: var(--surface-low); /* nearest existing var to mockup's #FCFAED */
