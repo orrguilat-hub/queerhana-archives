@@ -58,13 +58,124 @@ it to IA (`ia metadata --modify`) creates a value that looks live on the
 site but silently disappears the next time that entry gets rebuilt — the
 rebuild reads IA again and overwrites whatever was hand-edited.
 
-**Known instance of this right now:** `queerhana-haritz-aali` has an `event`
-value (`"haritz parties, february 2009"`) in `catalog.json` that does not
-exist in its IA metadata. It is live on the site today, on borrowed time —
-the next full rebuild of that entry erases it. Left as-is deliberately: its
-metadata (along with `location` and `rights_owner`, also gaps on this entry)
-is being decided separately, not fixed ad hoc here.
+**Resolved instance:** `queerhana-haritz-aali` and `queerhana-haritz-loop-2`
+both had this exact problem — fields present in `catalog.json` (from an
+earlier in-place edit) that didn't exist on IA, on borrowed time until the
+next rebuild erased them. Fixed by writing every divergent field to IA first,
+then rebuilding both entries from IA. See "Rule: run the reconciliation audit
+after every batch of IA writes" below for how this class of problem is now
+caught before it ships, not after.
 
 If a field needs to change, write it to IA first, then rebuild that entry's
 `catalog.json` record from IA (`scripts/build-catalog.py` against a log
 containing just that identifier) — never edit the JSON directly.
+
+## Rule: run the reconciliation audit after every batch of IA writes
+
+```bash
+PYTHONWARNINGS=ignore python3 scripts/reconciliation-audit.py
+```
+
+Compares `approved.csv` against live IA metadata for every item that appears
+in both, field by field (title, description, event, location, created_year,
+credit_text, rights_owner, cc_license, cc_license_url, subject_tags). Also
+reports corpus-membership gaps: an identifier in `approved.csv` with no live
+IA item (never uploaded, or upload failed), and an identifier on IA/in
+`catalog.json` with no `approved.csv` row (entered the corpus outside the
+normal review pipeline). Report only, never writes.
+
+Run this after any batch of IA metadata writes — not only when something
+already looks wrong. `audit-ia-metadata.py` (above) checks each item against
+itself (does it have *a* licenseurl, *a* rights_owner); this audit checks
+each item against what `approved.csv` says it should actually contain, which
+is a different and stronger question.
+
+**What the first real run of this audit established (2026-08-19):**
+Corrections applied to `approved.csv` do not reach IA on their own — writing
+a value to the CSV is not the same action as writing it to the archive, and
+nothing keeps them in sync automatically. `queerhana-dscn0776`/`0777`
+(a credit spelling), `queerhana-haritz-aali` (an event value and a credit
+line), and both pilot-era Haritz items generally, all had corrections that
+landed in `approved.csv` and stopped there. Separately: **pilot-era items
+predate the description/tagging pass entirely** — `queerhana-haritz-aali`
+and `queerhana-haritz-loop-2` were still carrying their original
+pilot-batch title, description, and generic collection-level tags
+(`queerhana`/`queer activism`/`lgbtq`/`tel aviv`) on IA, untouched by the
+richer per-item pass that every other item in the corpus already has. Both
+classes of drift are now closed for these items; the audit is what would
+catch either recurring.
+
+## Open gap: canonical-copy rule is not code, and neither is dedupe itself
+
+The "canonical Drive-account copy wins over a contributor's original" rule
+has only ever been applied by including it as an instruction each time the
+Drive-pull step runs — which is exactly how it gets forgotten. It has not
+been moved into code here, because **no dedupe/staging-inventory-generating
+script exists in this git repo to put it in.** `scripts/flag-faces.py` and
+`scripts/generate-contact-sheets.py` both read `staging-inventory.csv` and
+`duplicates.csv` from the staging directory, but whatever produced those
+files was run ad hoc and never committed. The Drive pull itself also happens
+in a separate Claude.ai session with Drive MCP access this repo doesn't have.
+
+Fixing this needs either: the original dedupe script recovered and committed
+here with the canonical-wins rule added as code, or a new one written from
+scratch once the actual Drive folder-naming convention that distinguishes a
+canonical copy from a contributor original is confirmed — guessing at that
+convention isn't safe to hardcode. Flagged, not fixed.
+
+## Full ingestion order
+
+1. **Drive pull** — happens in a separate Claude.ai session with Drive MCP
+   access, not from this repo. Google Drive holds every file twice: a
+   contributor's original upload and a canonical archive-account copy;
+   canonical is meant to win, for stable IDs. **Not currently enforced as
+   code anywhere** — see "Open gap: canonical-copy rule" below.
+2. **Dedupe** (perceptual-hash near-duplicate clustering) — produces
+   `staging-inventory.csv` and `duplicates.csv` in the staging directory.
+   No generating script for this step exists in this repo (see below);
+   these files are currently produced by an untracked process.
+3. **Orientation normalisation** (`scripts/normalize-orientation.py`) — bakes
+   EXIF orientation into pixel data and clears the tag, so nothing downstream
+   has to interpret EXIF. Files with no usable orientation signal go to a
+   review CSV instead of being guessed at. Runs on the deduped set, before
+   anything else touches the files.
+4. **Face flagging** (`scripts/flag-faces.py`) — Haar-cascade detection over
+   the deduped, oriented set. Judgment-free: reports face count and
+   confidence, decides nothing.
+5. **Contact sheets** (`scripts/generate-contact-sheets.py`) — grid sheets for
+   human review, split so flagged and unflagged files never share a sheet.
+6. **Review** — human judgment: approve/reject, title, description,
+   subject_tags, event, location, credit_text, rights_owner, cc_license,
+   consent_status, people_identified. Produces `approved.csv`.
+7. **Merge** — later-decision-wins reconciliation into `approved.csv` when a
+   file has been reviewed more than once (e.g. a pilot-batch decision
+   superseded by a later full-batch pass).
+8. **Upload queue** (`scripts/ia-upload-queue.py`) — the only code path that
+   writes to IA. Fixes/guards that live here specifically:
+   - **licenseurl-as-URL fix**: the human-readable CC label in `approved.csv`
+     (e.g. `"CC BY-NC-SA 4.0"`) is mapped to the real CC URL before upload —
+     the literal label text is never sent to IA as `licenseurl`.
+   - **`rights_owner` field**: sent to IA explicitly; earlier versions of this
+     script didn't send it at all.
+   - **empty-license skip rule**: a row with no license (or an unrecognised
+     one) is skipped and logged, never uploaded with a guessed default.
+   - **non-CC licence support**: `"all rights reserved"` sends no
+     `licenseurl`, sends IA's `rights` field from `rights_statement` instead;
+     a row claiming this with no `rights_statement` is skipped, not uploaded
+     bare.
+   - **consent gate**: a row without `consent_status: yes` is skipped and
+     logged — the code-level backstop behind human review, not a replacement
+     for it.
+   - **no-manual-uploads rule** (see above): `--only <filepath>` is the
+     supported way to upload or replace a single item; there is no remaining
+     reason to call `ia upload` directly.
+9. **Catalog build** (`scripts/build-catalog.py`) — reads IA metadata back
+   into `data/catalog.json`. Idempotent: never touches an `archive_id`
+   already present. **`catalog.json` is a build artifact of IA metadata and
+   must never be hand-edited** (see rule above) — if a field is wrong, fix it
+   on IA, then rebuild just that entry.
+10. **Verify** — field-emptiness and IA-URL-resolution checks across the full
+    catalog before a push (thumbnail/details/download all resolve;
+    cc_license/rights_owner/subject_tags/title/description all populated).
+11. **Reconciliation audit** (see rule above) — standing post-write check,
+    run after any batch of IA writes and before pushing.

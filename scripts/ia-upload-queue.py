@@ -193,11 +193,23 @@ def main():
         if not rows:
             sys.exit(f"--only {args.only!r} matched no row in {args.csv_path}")
 
-    for row in rows:
+    for row_index, row in enumerate(rows):
         identifier = identifier_for(row["filepath"])
         entry = state.get(identifier)
 
         if entry and entry.get("status") in ("done", "failed"):
+            continue
+
+        # Consent gate. Only enforced when the column is actually present
+        # in this CSV -- upload-input.csv (the translated copy fed to a
+        # normal batch run) doesn't carry it, only approved.csv does. Was
+        # previously enforced only by human review judgment before a row
+        # ever reached approved.csv; this is the code-level backstop.
+        if "consent_status" in row and (row.get("consent_status") or "").strip().lower() != "yes":
+            state[identifier] = {"status": "failed", "error": "consent_status not yes", "timestamp": now_iso()}
+            save_state(state_path, state)
+            append_log(log_path, [identifier, "failed_final", now_iso(),
+                                   f"consent_status={row.get('consent_status')!r} -- skipped, never uploaded without cleared consent"])
             continue
 
         license_val = (row.get("license") or "").strip()
@@ -238,7 +250,10 @@ def main():
         state[identifier] = {"status": status, "error": error, "timestamp": now_iso()}
         save_state(state_path, state)
 
-        if status == "done":
+        # No point pacing after the last row -- including the common
+        # single-item / --only case, which used to wait out the full
+        # --delay for nothing after its one upload finished.
+        if status == "done" and row_index < len(rows) - 1:
             time.sleep(args.delay)
 
     done = sum(1 for v in state.values() if v.get("status") == "done")
