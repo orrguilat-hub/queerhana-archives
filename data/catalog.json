@@ -3840,5 +3840,22 @@
     "rights_owner": "archive",
     "subject_tags": "hebrew text; ephemera; festival; tel aviv",
     "context_note": ""
+  },
+  {
+    "id": "251",
+    "archive_id": "queerhana-qh-inv",
+    "ia_file": "QH Inv.pdf",
+    "file_type": "pdf",
+    "title": "invitation to this is a free zone exhibition",
+    "description": "A two-page bilingual German and English invitation card from nGbK Berlin. The first page invites recipients to the exhibition opening on 26 May 2017 and lists three related talks, a discussion and a film screening held through June 2017, gives a history of Queerhana beginning with a 2002 gathering under a Tel Aviv highway bridge, lists the project group and exhibition contributors by name, and gives the venue address and an accompanying reader's ISBN. The second page carries a pink-and-black illustrated design reading \"QUEERHANA\" and \"THIS IS A FREE ZONE,\" with \"Jaffa-Tel Aviv 2001-2009\" and \"Berlin 2017.\"",
+    "created_year": "2017",
+    "credit_text": "",
+    "event": "this is a free zone, ngbk berlin, 2017",
+    "location": "",
+    "cc_license": "In copyright — used by permission of nGbK",
+    "cc_license_url": "",
+    "rights_owner": "third party",
+    "subject_tags": "ephemera; exhibition; english text; german text; illustration; berlin",
+    "context_note": ""
   }
 ]
