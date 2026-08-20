@@ -3,6 +3,9 @@
 Tracked in git (alongside `EVENTS.md` and `POLICIES.md`) so this survives
 across machines/sessions.
 
+This document describes what the pipeline does. `LESSONS.md` documents what
+has gone wrong and why the rules below exist — read it too.
+
 ## Rule: never call `ia upload` by hand
 
 Every upload — batch or single item — goes through
@@ -27,6 +30,55 @@ PYTHONWARNINGS=ignore python3 scripts/ia-upload-queue.py approved.csv \
 This runs the one matching row through the exact same license/rights
 handling, state tracking, and logging as a full batch run — there is no
 longer a reason to call `ia` directly for a single file.
+
+## Rule: identifiers are never inferred for a replacement — always pass `identifier` explicitly, and use `--mode replace`
+
+`ia-upload-queue.py` can derive an IA identifier from a row's `filepath`
+(`identifier_for()`, a filename slugify) when no `identifier` column is
+given. That inference is only safe for a genuinely new upload, where
+"identifier didn't exist yet" is the expected state either way. It is never
+safe for a **replacement** upload (fixing the file on an item that already
+exists), because a wrong inferred identifier doesn't fail loudly — `ia
+upload` just creates a new public item under the wrong name instead of
+touching the real one, and nothing about that looks like an error until
+someone notices a stray item later.
+
+**What happened (2026-08-20):** 19 items needed a pixel-level orientation
+fix (no EXIF signal, so pixels had to be rotated and re-uploaded). The
+corrected files were staged locally as `<archive_id>__<original_filename>`
+to keep 19 files distinguishable in one scratch directory. `ia-upload-queue.py`
+was run against that CSV with no explicit `identifier` column, so it
+inferred an identifier from each staged filename — and slugified
+`queerhana-dscn0663__DSCN0663.JPG` into `queerhana-queerhana-dscn0663-dscn0663`,
+doubling the `queerhana-` prefix. Six of the nineteen uploads landed before
+this was caught; each created a brand-new stray public IA item instead of
+replacing the real one. The six real, intended items were never touched.
+`ia delete --all` was later run on the six stray items: it removed the
+content files (moved to IA's `history/`), but IA refused (403 Access Denied)
+to remove `_meta.sqlite`, `_files.xml`, or `_meta.xml` — "use metadata api
+instead" — so empty item shells persist under those identifiers permanently.
+
+**Fix, now built into `ia-upload-queue.py`:**
+- An optional `identifier` column on any row is used verbatim, no
+  slugification, when present.
+- `--mode replace`: for fixing a file on an existing item. Requires the
+  `identifier` column be present for every row (inference is refused
+  outright, not just discouraged) and, before uploading a single byte,
+  checks the identifier already resolves to a live IA item — aborting that
+  row instead of uploading if it doesn't. This makes "replace mode creates
+  a new item" structurally impossible rather than a matter of care.
+- `--mode create` (the default, unchanged behavior) still allows filename
+  inference for genuinely new uploads, but now prints a loud
+  `WARN: ... INFERRED ... from filename` line before every upload that used it.
+- Every row, in either mode, prints a pre-flight `[mode] filepath ->
+  identifier` line before any upload attempt, so the target is visible
+  up front — this line would have caught the double-prefix bug immediately.
+- `--dry-run` resolves and prints identifiers (and, in replace mode, runs
+  the existence check) for an entire CSV without uploading or writing state.
+
+**Any replacement upload must supply an explicit `identifier` column and
+pass `--mode replace`.** Never rely on filename inference for a replace,
+regardless of how the local file happens to be named.
 
 ## Rule: audit before every push
 
