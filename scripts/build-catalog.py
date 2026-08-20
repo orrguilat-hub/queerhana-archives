@@ -16,7 +16,13 @@ CATALOG_PATH = "data/catalog.json"
 DEFAULT_LOG = "upload-log.csv"
 
 MEDIATYPE_TO_FILE_TYPE = {"image": "image", "movies": "video", "texts": "pdf"}
-SKIP_FILE_SUFFIXES = ("_meta.xml", "_files.xml", "_archive.torrent", "_reviews.xml")
+SKIP_FILE_SUFFIXES = ("_meta.xml", "_files.xml", "_archive.torrent", "_reviews.xml", "_meta.sqlite")
+# IA's own generated thumbnail. It's frequently tagged source="original" (not
+# "derivative") when no OCR/derivative pipeline ran on the item, which made
+# pick_remote_file() below pick it over the real uploaded file -- the modal's
+# "full resolution" swap was then downloading this same small thumbnail a
+# second time. Must be excluded by exact name, not a suffix.
+SKIP_FILE_NAMES = ("__ia_thumb.jpg",)
 
 # licenseurl -> short label, matching the format already used by the 12
 # existing catalog.json entries (e.g. "CC BY-NC-SA 4.0"). Only the standard
@@ -78,14 +84,14 @@ def fetch_metadata(identifier):
 def pick_remote_file(meta):
     for f in meta.get("files", []):
         name = f.get("name", "")
-        if any(name.endswith(sfx) for sfx in SKIP_FILE_SUFFIXES):
+        if name in SKIP_FILE_NAMES or any(name.endswith(sfx) for sfx in SKIP_FILE_SUFFIXES):
             continue
         if f.get("source") == "original":
             return name
-    # fallback: first non-derivative file
+    # fallback: first non-derivative, non-thumbnail file
     for f in meta.get("files", []):
         name = f.get("name", "")
-        if not any(name.endswith(sfx) for sfx in SKIP_FILE_SUFFIXES):
+        if name not in SKIP_FILE_NAMES and not any(name.endswith(sfx) for sfx in SKIP_FILE_SUFFIXES):
             return name
     return ""
 
