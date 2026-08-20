@@ -4,6 +4,9 @@ rights-disclaimer-draft.md
 internal/
 Design/
 
+# Local review aids — human-eyes tools, never deployed
+review-orientation.html
+
 # OS cruft
 .DS_Store
 

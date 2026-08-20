@@ -119,20 +119,20 @@
     "context_note": ""
   },
   {
-    "id": "223",
-    "archive_id": "queerhana-off-the-grid",
-    "ia_file": "off_the_grid.pdf",
-    "file_type": "pdf",
-    "title": "printout of an urban festival email",
-    "description": "Printout of a Hebrew email headed מניפסטציה (Hebrew: “manifestation”), subject line פסטיבל אורבני (Hebrew: “urban festival”), dated 14 June 2009. It sets out proposals for a festival mapped onto sites of alternative activity in Tel Aviv public space.",
-    "created_year": "",
-    "credit_text": "n/a",
-    "event": "fun fun funzine urban festival",
+    "id": "244",
+    "archive_id": "queerhana-haritz-aali",
+    "ia_file": "haritz-aali.jpg",
+    "file_type": "image",
+    "title": "on stage with a microphone",
+    "description": "Three people stand at the front of a stage, one holding a microphone with a raised hand, with a fourth playing a violin behind them. Large Hebrew letters projected on the backdrop are cropped and not legible; the image carries an \"Activestills.org\" watermark.",
+    "created_year": "2009",
+    "credit_text": "Oren Ziv / Activestills",
+    "event": "haritz parties, february 2009",
     "location": "Tel Aviv-Yaffo",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
-    "rights_owner": "archive",
-    "subject_tags": "hebrew text; ephemera; festival; tel aviv",
+    "rights_owner": "Orr Guilat",
+    "subject_tags": "stage; performance; microphone; violin; projection; music",
     "context_note": ""
   },
   {
@@ -3740,23 +3740,6 @@
     "context_note": ""
   },
   {
-    "id": "244",
-    "archive_id": "queerhana-haritz-aali",
-    "ia_file": "haritz-aali.jpg",
-    "file_type": "image",
-    "title": "on stage with a microphone",
-    "description": "Three people stand at the front of a stage, one holding a microphone with a raised hand, with a fourth playing a violin behind them. Large Hebrew letters projected on the backdrop are cropped and not legible; the image carries an \"Activestills.org\" watermark.",
-    "created_year": "2009",
-    "credit_text": "Oren Ziv / Activestills",
-    "event": "haritz parties, february 2009",
-    "location": "Tel Aviv-Yaffo",
-    "cc_license": "CC BY-NC-SA 4.0",
-    "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
-    "rights_owner": "Orr Guilat",
-    "subject_tags": "stage; performance; microphone; violin; projection; music",
-    "context_note": ""
-  },
-  {
     "id": "245",
     "archive_id": "queerhana-atlantis-flyer-all",
     "ia_file": "atlantis-flyer-all.jpg",
@@ -3839,6 +3822,23 @@
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "third party",
     "subject_tags": "hebrew text; ephemera; article; tel aviv",
+    "context_note": ""
+  },
+  {
+    "id": "223",
+    "archive_id": "queerhana-off-the-grid",
+    "ia_file": "off_the_grid.pdf",
+    "file_type": "pdf",
+    "title": "printout of an urban festival email",
+    "description": "Printout of a Hebrew email headed מניפסטציה (Hebrew: “manifestation”), subject line פסטיבל אורבני (Hebrew: “urban festival”), dated 14 June 2009. It sets out proposals for a festival mapped onto sites of alternative activity in Tel Aviv public space.",
+    "created_year": "",
+    "credit_text": "n/a",
+    "event": "fun fun funzine urban festival",
+    "location": "Tel Aviv-Yaffo",
+    "cc_license": "CC BY-NC-SA 4.0",
+    "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "rights_owner": "archive",
+    "subject_tags": "hebrew text; ephemera; festival; tel aviv",
     "context_note": ""
   }
 ]
