@@ -17,7 +17,7 @@
     "context_note": ""
   },
   {
-    "id": "17",
+    "id": "260",
     "archive_id": "queerhana-dsc-4334",
     "ia_file": "DSC_4334.JPG",
     "file_type": "image",
@@ -26,7 +26,7 @@
     "created_year": "2005",
     "credit_text": "",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "archive",
@@ -102,12 +102,12 @@
     "context_note": ""
   },
   {
-    "id": "200",
+    "id": "301",
     "archive_id": "queerhana-dsc-3149a",
     "ia_file": "DSC_3149a.jpg",
     "file_type": "image",
     "title": "masked group on a rooftop at night",
-    "description": "Eleven people pose on a rooftop at night against a lit city skyline, each with the head covered by a decorated box, bag or screen. Legible lettering includes “GAY IS DEAD”, “QUIER” and “QUIEER”, several boxes carry a smiling face over crossed bones, and one carries a circled anarchy symbol; a bouquet and a walking frame stand at the front.",
+    "description": "Eleven people pose on a rooftop at night against a lit city skyline, heads covered by decorated shopping bags. Legible lettering includes “GAY IS DEAD”, “QUIER” and “QUIEER”, several bags carry a smiling face over crossed bones, and one carries a circled anarchy symbol; a bouquet and a walking frame stand at the front.",
     "created_year": "2006",
     "credit_text": "Shay Ben Efraim",
     "event": "timeout photoshoot (unpublished)",
@@ -119,7 +119,7 @@
     "context_note": ""
   },
   {
-    "id": "244",
+    "id": "254",
     "archive_id": "queerhana-haritz-aali",
     "ia_file": "haritz-aali.jpg",
     "file_type": "image",
@@ -127,12 +127,80 @@
     "description": "Three people stand at the front of a stage, one holding a microphone with a raised hand, with a fourth playing a violin behind them. Large Hebrew letters projected on the backdrop are cropped and not legible; the image carries an \"Activestills.org\" watermark.",
     "created_year": "2009",
     "credit_text": "Oren Ziv / Activestills",
-    "event": "haritz parties, february 2009",
+    "event": "haritz parties",
     "location": "Tel Aviv-Yaffo",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "Orr Guilat",
     "subject_tags": "stage; performance; microphone; violin; projection; music",
+    "context_note": ""
+  },
+  {
+    "id": "238",
+    "archive_id": "queerhana-coalition-statement-2009",
+    "ia_file": "coalition-statement.odt",
+    "file_type": "pdf",
+    "title": "pink communities coalition: statement of intent (2009)",
+    "description": "Pink Communities Coalition statement of intent, dated 04/08/2009. QueeRhaNA Archives.",
+    "created_year": "",
+    "credit_text": "Pink Communities Coalition",
+    "event": "pink communities coalition, 2009",
+    "location": "Tel Aviv-Yaffo",
+    "cc_license": "CC BY-NC-SA 4.0",
+    "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "rights_owner": "archive",
+    "subject_tags": "hebrew text; ephemera; article; tel aviv",
+    "context_note": ""
+  },
+  {
+    "id": "251",
+    "archive_id": "queerhana-qh-inv",
+    "ia_file": "QH Inv.pdf",
+    "file_type": "pdf",
+    "title": "invitation to this is a free zone exhibition",
+    "description": "A two-page bilingual German and English invitation card from nGbK Berlin. The first page invites recipients to the exhibition opening on 26 May 2017 and lists three related talks, a discussion and a film screening held through June 2017, gives a history of Queerhana beginning with a 2002 gathering under a Tel Aviv highway bridge, lists the project group and exhibition contributors by name, and gives the venue address and an accompanying reader's ISBN. The second page carries a pink-and-black illustrated design reading \"QUEERHANA\" and \"THIS IS A FREE ZONE,\" with \"Jaffa-Tel Aviv 2001-2009\" and \"Berlin 2017.\"",
+    "created_year": "2017",
+    "credit_text": "",
+    "event": "this is a free zone, ngbk berlin, 2017",
+    "location": "",
+    "cc_license": "In copyright — used by permission of nGbK",
+    "cc_license_url": "",
+    "rights_owner": "third party",
+    "subject_tags": "ephemera; exhibition; english text; german text; illustration; berlin",
+    "context_note": ""
+  },
+  {
+    "id": "259",
+    "archive_id": "queerhana-atlantis-flyer-all",
+    "ia_file": "atlantis-flyer-all.jpg",
+    "file_type": "image",
+    "title": "flyer for an underwater rave",
+    "description": "A black-and-white printed flyer headed קוויר חנה / יורדות לאטלנטיס (Hebrew: “queerhana / going down to Atlantis”) beside the words “Underwater RAVE”, with four hand-drawn comic panels of swimmers and fish and two printed emblems at the top left. The details line reads יום שישי 24.2 · 24:00 · קומפורט 15, פלורנטין · 30 שקלים · הנחות בתחפושות/דראג (Hebrew: “Friday 24.2 · 24:00 · Comfort 15, Florentin · 30 shekels · discount in costume/drag”), followed by DJ and VJ billings and the address www.queerhana.org.",
+    "created_year": "",
+    "credit_text": "Shiri Blumental",
+    "event": "down to the atlantis queerhana",
+    "location": "",
+    "cc_license": "CC BY-NC-SA 4.0",
+    "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "rights_owner": "third party",
+    "subject_tags": "flyer; ephemera; illustration; hebrew text; party; drag",
+    "context_note": ""
+  },
+  {
+    "id": "257",
+    "archive_id": "queerhana-i8",
+    "ia_file": "I8.jpg",
+    "file_type": "image",
+    "title": "drawing of a figure in a cap",
+    "description": "A drawing in magenta line and hatching showing one figure in a flat cap in profile, with typewriter-style English text overlaid at the left and credits at the top right reading “text:sami zibak / drawing: zvonimir”. The overlaid text reads: “MY CLASSMATES, YOUNG MUSLIM AND CHRISTIAN ARAB BOYS WERE ALSO EXPERIENCING THE BUDDING OF THEIR SEXUAL AWAKENING, AND HAVE SINCE BECOME ETCHED IN MY CONSCIOUSNESS AS THE ULTIMATE SEX SYMBOLS, ESPECIALLY AS THEY WERE THE SUBJECTS OF MY VERY FIRST MASTURBATION SESSIONS IN THE SEVENTH GRADE. TO THIS DAY I SEARCH THEIR LIKES ON GAY DATING APPS, DURING MY NOC-TURNAL FORAYS THROUGH THE CRUISING GROUNDS OF SOUTH TEL AVIV, WHERE I HAD THOUGHT IT WOULD BE EASY TO FIND ARAB GUYS TO GET TO HAVE SEX WITH.”",
+    "created_year": "2017",
+    "credit_text": "zvonimir.kontrec (drawing)",
+    "event": "this is a free zone, ngbk berlin, 2017",
+    "location": "",
+    "cc_license": "CC BY-NC-SA 4.0",
+    "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "rights_owner": "third party",
+    "subject_tags": "illustration; english text; artwork; portrait",
     "context_note": ""
   },
   {
@@ -187,7 +255,7 @@
     "context_note": ""
   },
   {
-    "id": "54",
+    "id": "256",
     "archive_id": "queerhana-dscf3602",
     "ia_file": "DSCF3602.JPG",
     "file_type": "image",
@@ -195,7 +263,7 @@
     "description": "One person stands indoors holding an electronic keyboard upright against the body, in front of a large mirror leaning against the wall. The keyboard carries the brand name “KORG”.",
     "created_year": "2003",
     "credit_text": "n/a",
-    "event": "",
+    "event": "allenbeach reclaim the streets action, 15-18 march 2003",
     "location": "",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
@@ -2397,11 +2465,11 @@
     "context_note": ""
   },
   {
-    "id": "199",
+    "id": "300",
     "archive_id": "queerhana-dscn6163",
     "ia_file": "DSCN6163.JPG",
     "file_type": "image",
-    "title": "decks set up beside a pink van",
+    "title": "DJ Bosco at the decks beside a pink van",
     "description": "One person with headphones works at turntables and a mixer on a table beside an open pink van, in a paved yard. A record crate, cabling and a battery unit lie on the ground, and loudspeakers are mounted on the roof rack.",
     "created_year": "2003",
     "credit_text": "n/a",
@@ -2856,7 +2924,7 @@
     "context_note": ""
   },
   {
-    "id": "18",
+    "id": "261",
     "archive_id": "queerhana-dsc-4338",
     "ia_file": "DSC_4338.JPG",
     "file_type": "image",
@@ -2865,7 +2933,7 @@
     "created_year": "2005",
     "credit_text": "",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "archive",
@@ -2873,7 +2941,7 @@
     "context_note": ""
   },
   {
-    "id": "19",
+    "id": "262",
     "archive_id": "queerhana-dsc-4341",
     "ia_file": "DSC_4341.JPG",
     "file_type": "image",
@@ -2882,7 +2950,7 @@
     "created_year": "2005",
     "credit_text": "",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "archive",
@@ -2890,7 +2958,7 @@
     "context_note": ""
   },
   {
-    "id": "20",
+    "id": "263",
     "archive_id": "queerhana-dsc-4345",
     "ia_file": "DSC_4345.JPG",
     "file_type": "image",
@@ -2899,7 +2967,7 @@
     "created_year": "2005",
     "credit_text": "",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "archive",
@@ -2907,7 +2975,7 @@
     "context_note": ""
   },
   {
-    "id": "21",
+    "id": "264",
     "archive_id": "queerhana-dsc-4346",
     "ia_file": "DSC_4346.JPG",
     "file_type": "image",
@@ -2916,7 +2984,7 @@
     "created_year": "2005",
     "credit_text": "",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "archive",
@@ -2924,7 +2992,7 @@
     "context_note": ""
   },
   {
-    "id": "22",
+    "id": "265",
     "archive_id": "queerhana-dsc-4348",
     "ia_file": "DSC_4348.JPG",
     "file_type": "image",
@@ -2933,7 +3001,7 @@
     "created_year": "2005",
     "credit_text": "",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "archive",
@@ -2941,7 +3009,7 @@
     "context_note": ""
   },
   {
-    "id": "23",
+    "id": "266",
     "archive_id": "queerhana-dsc-4349",
     "ia_file": "DSC_4349.JPG",
     "file_type": "image",
@@ -2950,7 +3018,7 @@
     "created_year": "2005",
     "credit_text": "",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "archive",
@@ -2958,7 +3026,7 @@
     "context_note": ""
   },
   {
-    "id": "24",
+    "id": "267",
     "archive_id": "queerhana-dsc-4352",
     "ia_file": "DSC_4352.JPG",
     "file_type": "image",
@@ -2967,7 +3035,7 @@
     "created_year": "2005",
     "credit_text": "",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "archive",
@@ -2975,7 +3043,7 @@
     "context_note": ""
   },
   {
-    "id": "25",
+    "id": "268",
     "archive_id": "queerhana-dsc-4354",
     "ia_file": "DSC_4354.JPG",
     "file_type": "image",
@@ -2984,7 +3052,7 @@
     "created_year": "2005",
     "credit_text": "",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "archive",
@@ -2992,7 +3060,7 @@
     "context_note": ""
   },
   {
-    "id": "26",
+    "id": "269",
     "archive_id": "queerhana-dsc-4356",
     "ia_file": "DSC_4356.JPG",
     "file_type": "image",
@@ -3001,7 +3069,7 @@
     "created_year": "2005",
     "credit_text": "",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "archive",
@@ -3009,7 +3077,7 @@
     "context_note": ""
   },
   {
-    "id": "27",
+    "id": "270",
     "archive_id": "queerhana-dsc-4358",
     "ia_file": "DSC_4358.JPG",
     "file_type": "image",
@@ -3018,7 +3086,7 @@
     "created_year": "2005",
     "credit_text": "",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "archive",
@@ -3026,7 +3094,7 @@
     "context_note": ""
   },
   {
-    "id": "28",
+    "id": "271",
     "archive_id": "queerhana-dsc-4360",
     "ia_file": "DSC_4360.JPG",
     "file_type": "image",
@@ -3035,7 +3103,7 @@
     "created_year": "2005",
     "credit_text": "",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "archive",
@@ -3043,7 +3111,7 @@
     "context_note": ""
   },
   {
-    "id": "29",
+    "id": "272",
     "archive_id": "queerhana-dsc-4362",
     "ia_file": "DSC_4362.JPG",
     "file_type": "image",
@@ -3052,7 +3120,7 @@
     "created_year": "2005",
     "credit_text": "",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "archive",
@@ -3060,7 +3128,7 @@
     "context_note": ""
   },
   {
-    "id": "30",
+    "id": "273",
     "archive_id": "queerhana-dsc-4373",
     "ia_file": "DSC_4373.JPG",
     "file_type": "image",
@@ -3069,7 +3137,7 @@
     "created_year": "2005",
     "credit_text": "",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "archive",
@@ -3077,7 +3145,7 @@
     "context_note": ""
   },
   {
-    "id": "31",
+    "id": "274",
     "archive_id": "queerhana-dsc-4374",
     "ia_file": "DSC_4374.JPG",
     "file_type": "image",
@@ -3086,7 +3154,7 @@
     "created_year": "2005",
     "credit_text": "",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "archive",
@@ -3094,7 +3162,7 @@
     "context_note": ""
   },
   {
-    "id": "32",
+    "id": "275",
     "archive_id": "queerhana-dsc-4375",
     "ia_file": "DSC_4375.JPG",
     "file_type": "image",
@@ -3103,7 +3171,7 @@
     "created_year": "2005",
     "credit_text": "",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "archive",
@@ -3111,7 +3179,7 @@
     "context_note": ""
   },
   {
-    "id": "33",
+    "id": "276",
     "archive_id": "queerhana-dsc-4377",
     "ia_file": "DSC_4377.JPG",
     "file_type": "image",
@@ -3120,7 +3188,7 @@
     "created_year": "2005",
     "credit_text": "",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "archive",
@@ -3128,7 +3196,7 @@
     "context_note": ""
   },
   {
-    "id": "34",
+    "id": "277",
     "archive_id": "queerhana-dsc-4380",
     "ia_file": "DSC_4380.JPG",
     "file_type": "image",
@@ -3137,7 +3205,7 @@
     "created_year": "2005",
     "credit_text": "",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "archive",
@@ -3145,7 +3213,7 @@
     "context_note": ""
   },
   {
-    "id": "35",
+    "id": "278",
     "archive_id": "queerhana-dsc-4382",
     "ia_file": "DSC_4382.JPG",
     "file_type": "image",
@@ -3154,7 +3222,7 @@
     "created_year": "2005",
     "credit_text": "",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "archive",
@@ -3162,7 +3230,7 @@
     "context_note": ""
   },
   {
-    "id": "36",
+    "id": "279",
     "archive_id": "queerhana-dsc-4383",
     "ia_file": "DSC_4383.JPG",
     "file_type": "image",
@@ -3171,7 +3239,7 @@
     "created_year": "2005",
     "credit_text": "",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "archive",
@@ -3179,7 +3247,7 @@
     "context_note": ""
   },
   {
-    "id": "37",
+    "id": "280",
     "archive_id": "queerhana-dsc-4385",
     "ia_file": "DSC_4385.JPG",
     "file_type": "image",
@@ -3188,7 +3256,7 @@
     "created_year": "2005",
     "credit_text": "",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "archive",
@@ -3196,7 +3264,7 @@
     "context_note": ""
   },
   {
-    "id": "38",
+    "id": "281",
     "archive_id": "queerhana-dsc-4388",
     "ia_file": "DSC_4388.JPG",
     "file_type": "image",
@@ -3205,7 +3273,7 @@
     "created_year": "2005",
     "credit_text": "",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "archive",
@@ -3213,7 +3281,7 @@
     "context_note": ""
   },
   {
-    "id": "39",
+    "id": "282",
     "archive_id": "queerhana-dsc-4390",
     "ia_file": "DSC_4390.JPG",
     "file_type": "image",
@@ -3222,7 +3290,7 @@
     "created_year": "2005",
     "credit_text": "",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "archive",
@@ -3230,7 +3298,7 @@
     "context_note": ""
   },
   {
-    "id": "40",
+    "id": "283",
     "archive_id": "queerhana-dsc-4391",
     "ia_file": "DSC_4391.JPG",
     "file_type": "image",
@@ -3239,7 +3307,7 @@
     "created_year": "2005",
     "credit_text": "",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "archive",
@@ -3247,7 +3315,7 @@
     "context_note": ""
   },
   {
-    "id": "41",
+    "id": "284",
     "archive_id": "queerhana-dsc-4392",
     "ia_file": "DSC_4392.JPG",
     "file_type": "image",
@@ -3256,7 +3324,7 @@
     "created_year": "2005",
     "credit_text": "",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "archive",
@@ -3264,7 +3332,7 @@
     "context_note": ""
   },
   {
-    "id": "42",
+    "id": "285",
     "archive_id": "queerhana-dsc-4393",
     "ia_file": "DSC_4393.JPG",
     "file_type": "image",
@@ -3273,7 +3341,7 @@
     "created_year": "2005",
     "credit_text": "",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "archive",
@@ -3281,7 +3349,7 @@
     "context_note": ""
   },
   {
-    "id": "43",
+    "id": "286",
     "archive_id": "queerhana-dsc-4398",
     "ia_file": "DSC_4398.JPG",
     "file_type": "image",
@@ -3290,7 +3358,7 @@
     "created_year": "2005",
     "credit_text": "",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "archive",
@@ -3298,7 +3366,7 @@
     "context_note": ""
   },
   {
-    "id": "44",
+    "id": "287",
     "archive_id": "queerhana-dsc-4399",
     "ia_file": "DSC_4399.JPG",
     "file_type": "image",
@@ -3307,7 +3375,7 @@
     "created_year": "2005",
     "credit_text": "",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "archive",
@@ -3315,7 +3383,7 @@
     "context_note": ""
   },
   {
-    "id": "45",
+    "id": "288",
     "archive_id": "queerhana-dsc-4400",
     "ia_file": "DSC_4400.JPG",
     "file_type": "image",
@@ -3324,7 +3392,7 @@
     "created_year": "2005",
     "credit_text": "",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "archive",
@@ -3332,7 +3400,7 @@
     "context_note": ""
   },
   {
-    "id": "46",
+    "id": "289",
     "archive_id": "queerhana-dsc-4404",
     "ia_file": "DSC_4404.JPG",
     "file_type": "image",
@@ -3341,7 +3409,7 @@
     "created_year": "2005",
     "credit_text": "",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "archive",
@@ -3349,7 +3417,7 @@
     "context_note": ""
   },
   {
-    "id": "47",
+    "id": "290",
     "archive_id": "queerhana-dsc-4406",
     "ia_file": "DSC_4406.JPG",
     "file_type": "image",
@@ -3358,7 +3426,7 @@
     "created_year": "2005",
     "credit_text": "",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "archive",
@@ -3366,7 +3434,7 @@
     "context_note": ""
   },
   {
-    "id": "48",
+    "id": "291",
     "archive_id": "queerhana-dsc-4407",
     "ia_file": "DSC_4407.JPG",
     "file_type": "image",
@@ -3375,7 +3443,7 @@
     "created_year": "2005",
     "credit_text": "",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "archive",
@@ -3383,7 +3451,7 @@
     "context_note": ""
   },
   {
-    "id": "49",
+    "id": "292",
     "archive_id": "queerhana-dsc-4408",
     "ia_file": "DSC_4408.JPG",
     "file_type": "image",
@@ -3392,7 +3460,7 @@
     "created_year": "2005",
     "credit_text": "",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "archive",
@@ -3400,7 +3468,7 @@
     "context_note": ""
   },
   {
-    "id": "82",
+    "id": "293",
     "archive_id": "queerhana-dsc-4412",
     "ia_file": "DSC_4412.JPG",
     "file_type": "image",
@@ -3409,7 +3477,7 @@
     "created_year": "2005",
     "credit_text": "Shay Ben Efraim",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "third party",
@@ -3417,7 +3485,7 @@
     "context_note": ""
   },
   {
-    "id": "83",
+    "id": "294",
     "archive_id": "queerhana-dsc-4414",
     "ia_file": "DSC_4414.JPG",
     "file_type": "image",
@@ -3426,7 +3494,7 @@
     "created_year": "2005",
     "credit_text": "Shay Ben Efraim",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "third party",
@@ -3434,7 +3502,7 @@
     "context_note": ""
   },
   {
-    "id": "84",
+    "id": "295",
     "archive_id": "queerhana-dsc-4421",
     "ia_file": "DSC_4421.JPG",
     "file_type": "image",
@@ -3443,7 +3511,7 @@
     "created_year": "2005",
     "credit_text": "Shay Ben Efraim",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "third party",
@@ -3451,7 +3519,7 @@
     "context_note": ""
   },
   {
-    "id": "85",
+    "id": "296",
     "archive_id": "queerhana-dsc-4422",
     "ia_file": "DSC_4422.JPG",
     "file_type": "image",
@@ -3460,7 +3528,7 @@
     "created_year": "2005",
     "credit_text": "Shay Ben Efraim",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "third party",
@@ -3468,7 +3536,7 @@
     "context_note": ""
   },
   {
-    "id": "86",
+    "id": "297",
     "archive_id": "queerhana-dsc-4426",
     "ia_file": "DSC_4426.JPG",
     "file_type": "image",
@@ -3477,7 +3545,7 @@
     "created_year": "2005",
     "credit_text": "Shay Ben Efraim",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "third party",
@@ -3485,7 +3553,7 @@
     "context_note": ""
   },
   {
-    "id": "87",
+    "id": "298",
     "archive_id": "queerhana-dsc-4427",
     "ia_file": "DSC_4427.JPG",
     "file_type": "image",
@@ -3494,7 +3562,7 @@
     "created_year": "2005",
     "credit_text": "Shay Ben Efraim",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "third party",
@@ -3502,7 +3570,7 @@
     "context_note": ""
   },
   {
-    "id": "88",
+    "id": "299",
     "archive_id": "queerhana-dsc-4432",
     "ia_file": "DSC_4432.JPG",
     "file_type": "image",
@@ -3511,7 +3579,7 @@
     "created_year": "2005",
     "credit_text": "Shay Ben Efraim",
     "event": "queerhana furry tale, june 2005",
-    "location": "",
+    "location": "Ramat Gan/Jarisha",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "third party",
@@ -3519,12 +3587,12 @@
     "context_note": ""
   },
   {
-    "id": "201",
+    "id": "302",
     "archive_id": "queerhana-dsc-3152",
     "ia_file": "DSC_3152.JPG",
     "file_type": "image",
-    "title": "rooftop group holding printed boards",
-    "description": "Eleven people pose on a rooftop at night against a lit city skyline, several holding decorated boards and bags in front of the body rather than over the head. Legible lettering includes “GAY IS DEAD” and “QUIER”, and several boards carry a smiling face over crossed bones.",
+    "title": "rooftop group with faces uncovered",
+    "description": "Eleven people pose on a rooftop at night against a lit city skyline with faces uncovered, holding the decorated shopping bags in front of the body. Legible lettering includes “GAY IS DEAD” and “QUIER”, and several bags carry a smiling face over crossed bones.",
     "created_year": "2006",
     "credit_text": "Shay Ben Efraim",
     "event": "timeout photoshoot (unpublished)",
@@ -3536,7 +3604,7 @@
     "context_note": ""
   },
   {
-    "id": "14",
+    "id": "252",
     "archive_id": "queerhana-tupim-haritz",
     "ia_file": "Tupim_Haritz.jpg",
     "file_type": "image",
@@ -3544,7 +3612,7 @@
     "description": "Around forty people fill a dark, hazy room seen from above; five or more hold large drums and play them with sticks and hands. One person at the lower right holds a small camera up towards the group.",
     "created_year": "2008",
     "credit_text": "Oren Ziv",
-    "event": "haritz parties, december 2008",
+    "event": "haritz parties",
     "location": "",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
@@ -3553,24 +3621,7 @@
     "context_note": ""
   },
   {
-    "id": "50",
-    "archive_id": "queerhana-i8",
-    "ia_file": "I8.jpg",
-    "file_type": "image",
-    "title": "drawing of a figure in a cap",
-    "description": "A drawing in magenta line and hatching showing one figure in a flat cap in profile, with typewriter-style English text overlaid at the left and credits at the top right reading “text:sami zibak / drawing: zvonimir”. The overlaid text reads: “MY CLASSMATES, YOUNG MUSLIM AND CHRISTIAN ARAB BOYS WERE ALSO EXPERIENCING THE BUDDING OF THEIR SEXUAL AWAKENING, AND HAVE SINCE BECOME ETCHED IN MY CONSCIOUSNESS AS THE ULTIMATE SEX SYMBOLS, ESPECIALLY AS THEY WERE THE SUBJECTS OF MY VERY FIRST MASTURBATION SESSIONS IN THE SEVENTH GRADE. TO THIS DAY I SEARCH THEIR LIKES ON GAY DATING APPS, DURING MY NOC-TURNAL FORAYS THROUGH THE CRUISING GROUNDS OF SOUTH TEL AVIV, WHERE I HAD THOUGHT IT WOULD BE EASY TO FIND ARAB GUYS TO GET TO HAVE SEX WITH.”",
-    "created_year": "2017",
-    "credit_text": "zvonimir.kontrec (drawing)",
-    "event": "",
-    "location": "",
-    "cc_license": "CC BY-NC-SA 4.0",
-    "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
-    "rights_owner": "third party",
-    "subject_tags": "illustration; english text; artwork; portrait",
-    "context_note": ""
-  },
-  {
-    "id": "51",
+    "id": "258",
     "archive_id": "queerhana-i9",
     "ia_file": "I9.jpg",
     "file_type": "image",
@@ -3578,7 +3629,7 @@
     "description": "A drawing in magenta line and hatching showing one figure with hands raised to the head and a pendant at the chest, with typewriter-style English text overlaid above and credits at the lower right reading “text: romm lewkowicz / drawing: zvonimir”. The overlaid text reads: “I WAS A RANDOM SUBURBAN SISSY BOY WHEN QUEERHANA SEDUCED ME AND MADE ME QUEER. IT TOOK A BUNCH OF GENDERFUCKED QUEERS IN GLITTER AND TUTUS TO DO THE WORK THE DEMONSTRATIONS AND BOOKS COULDN’T”.",
     "created_year": "2017",
     "credit_text": "zvonimir.kontrec (drawing) / romm lewkowicz (text)",
-    "event": "",
+    "event": "this is a free zone, ngbk berlin, 2017",
     "location": "",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
@@ -3638,23 +3689,6 @@
     "context_note": ""
   },
   {
-    "id": "238",
-    "archive_id": "queerhana-coalition-statement-2009",
-    "ia_file": "coalition-statement.odt",
-    "file_type": "pdf",
-    "title": "pink communities coalition: statement of intent (2009)",
-    "description": "Pink Communities Coalition statement of intent, dated 04/08/2009. QueeRhaNA Archives.",
-    "created_year": "",
-    "credit_text": "Pink Communities Coalition",
-    "event": "pink communities coalition, 2009",
-    "location": "Tel Aviv-Yaffo",
-    "cc_license": "CC BY-NC-SA 4.0",
-    "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
-    "rights_owner": "archive",
-    "subject_tags": "hebrew text; ephemera; article; tel aviv",
-    "context_note": ""
-  },
-  {
     "id": "239",
     "archive_id": "queerhana-invitation-fb",
     "ia_file": "invitation FB.png",
@@ -3672,7 +3706,7 @@
     "context_note": ""
   },
   {
-    "id": "240",
+    "id": "253",
     "archive_id": "queerhana-haritz-loop-2",
     "ia_file": "haritz-loop-2.mpg",
     "file_type": "video",
@@ -3680,7 +3714,7 @@
     "description": "A looping animated graphic of four Hebrew letters in white striped outline on black, throwing long streaked rays of white and orange light that sweep across the frame. The lettering is not legible.",
     "created_year": "",
     "credit_text": "Orr Guilat",
-    "event": "haritz parties, december 2008",
+    "event": "haritz parties",
     "location": "Tel Aviv-Yaffo",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
@@ -3740,24 +3774,7 @@
     "context_note": ""
   },
   {
-    "id": "245",
-    "archive_id": "queerhana-atlantis-flyer-all",
-    "ia_file": "atlantis-flyer-all.jpg",
-    "file_type": "image",
-    "title": "flyer for an underwater rave",
-    "description": "A black-and-white printed flyer headed קוויר חנה / יורדות לאטלנטיס (Hebrew: “queerhana / going down to Atlantis”) beside the words “Underwater RAVE”, with four hand-drawn comic panels of swimmers and fish and two printed emblems at the top left. The details line reads יום שישי 24.2 · 24:00 · קומפורט 15, פלורנטין · 30 שקלים · הנחות בתחפושות/דראג (Hebrew: “Friday 24.2 · 24:00 · Comfort 15, Florentin · 30 shekels · discount in costume/drag”), followed by DJ and VJ billings and the address www.queerhana.org.",
-    "created_year": "",
-    "credit_text": "Shiri Blumental",
-    "event": "",
-    "location": "",
-    "cc_license": "CC BY-NC-SA 4.0",
-    "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
-    "rights_owner": "third party",
-    "subject_tags": "flyer; ephemera; illustration; hebrew text; party; drag",
-    "context_note": ""
-  },
-  {
-    "id": "246",
+    "id": "255",
     "archive_id": "queerhana-shana-pizoz1",
     "ia_file": "history/files/shana pizoz1.jpg.~1~",
     "file_type": "image",
@@ -3765,7 +3782,7 @@
     "description": "A composite picture combining a printed illustration of two children walking hand in hand through a landscape with a photographic image of a rising explosion cloud at the right. Script lettering across the lower edge reads “Army of Lovers”.",
     "created_year": "",
     "credit_text": "n/a",
-    "event": "",
+    "event": "haritz parties",
     "location": "",
     "cc_license": "CC BY-NC-SA 4.0",
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
@@ -3822,40 +3839,6 @@
     "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
     "rights_owner": "third party",
     "subject_tags": "hebrew text; ephemera; article; tel aviv",
-    "context_note": ""
-  },
-  {
-    "id": "223",
-    "archive_id": "queerhana-off-the-grid",
-    "ia_file": "off_the_grid.pdf",
-    "file_type": "pdf",
-    "title": "printout of an urban festival email",
-    "description": "Printout of a Hebrew email headed מניפסטציה (Hebrew: “manifestation”), subject line פסטיבל אורבני (Hebrew: “urban festival”), dated 14 June 2009. It sets out proposals for a festival mapped onto sites of alternative activity in Tel Aviv public space.",
-    "created_year": "",
-    "credit_text": "n/a",
-    "event": "fun fun funzine urban festival",
-    "location": "Tel Aviv-Yaffo",
-    "cc_license": "CC BY-NC-SA 4.0",
-    "cc_license_url": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
-    "rights_owner": "archive",
-    "subject_tags": "hebrew text; ephemera; festival; tel aviv",
-    "context_note": ""
-  },
-  {
-    "id": "251",
-    "archive_id": "queerhana-qh-inv",
-    "ia_file": "QH Inv.pdf",
-    "file_type": "pdf",
-    "title": "invitation to this is a free zone exhibition",
-    "description": "A two-page bilingual German and English invitation card from nGbK Berlin. The first page invites recipients to the exhibition opening on 26 May 2017 and lists three related talks, a discussion and a film screening held through June 2017, gives a history of Queerhana beginning with a 2002 gathering under a Tel Aviv highway bridge, lists the project group and exhibition contributors by name, and gives the venue address and an accompanying reader's ISBN. The second page carries a pink-and-black illustrated design reading \"QUEERHANA\" and \"THIS IS A FREE ZONE,\" with \"Jaffa-Tel Aviv 2001-2009\" and \"Berlin 2017.\"",
-    "created_year": "2017",
-    "credit_text": "",
-    "event": "this is a free zone, ngbk berlin, 2017",
-    "location": "",
-    "cc_license": "In copyright — used by permission of nGbK",
-    "cc_license_url": "",
-    "rights_owner": "third party",
-    "subject_tags": "ephemera; exhibition; english text; german text; illustration; berlin",
     "context_note": ""
   }
 ]

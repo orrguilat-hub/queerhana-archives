@@ -35,27 +35,44 @@ March 2003 — it does not describe a march.
 bridge` is dated by more than EXIF: in `wetransfer-024eb0(1)/DSCN0826a.jpg` the
 date is spray-painted on the bridge pier itself, reading קוויר חנה 6.2003
 (Hebrew: "Queerhana 6.2003"). This matches the EXIF capture date of 2003-06-27
-on all 123 items in the occasion, and contradicts the "2002" recorded in the
+across every item in the occasion, and contradicts the "2002" recorded in the
 original review note. Where a date is written into the photograph like this it
 outranks both EXIF and the notes.
 
+**A separate, earlier under-the-bridge occasion in 2002 is known to exist.**
+The nGbK invitation (`queerhana-qh-inv`) dates the first bridge gathering to
+2002 — a gathering distinct from the 2003 occasion documented above, whose
+own material is expected in a later batch. `no-pride queerhana under the
+bridge, 2003` is therefore not the first bridge gathering, only the first for
+which material has been catalogued so far; do not treat its name as implying
+otherwise, and do not merge future 2002 material into it once it arrives.
+
 ## Canonical names
 
-| Canonical name | Items | EXIF date(s) |
-|---|---|---|
-| `no-pride queerhana under the bridge, 2003` | 123 | 2003-06-27 (corroborated in-frame — see below) |
-| `queerhana furry tale, june 2005` | 40 | 2005-06-14 |
-| `mini queerhana purim, march 2003` | 16 | 2003-03-21 (14 items; 2 more carry a camera misdate of 2004-08-05 and are left without a `created_year`) |
-| `allenbeach reclaim the streets action, 8 march 2003` | 13 | 2003-03-08 |
-| `allenbeach reclaim the streets action, 15-18 march 2003` | 9 | 2003-03-15 .. 2003-03-18 |
-| `pink communities coalition, 2009` | 5 | 2009-08-05 (2 of 5; rest undated) |
-| `queerhana four-day festival, september 2002` | 4 | 2002-09-28 |
-| `this is a free zone, ngbk berlin, 2017` | 3 | no EXIF (year from the material itself) |
-| `timeout photoshoot (unpublished)` | 2 | 2006-12-24 |
-| `fun fun funzine urban festival` | 1 | no EXIF |
-| `haritz parties, december 2008` | 1 | 2008-12-27 |
-| `haritz parties, february 2009` | 1 | 2009-02-07 |
-| `queerhana chuchu` | 1 | 2008-08-29 |
+| Canonical name | EXIF date(s) |
+|---|---|
+| `no-pride queerhana under the bridge, 2003` | 2003-06-27 (corroborated in-frame — see above) |
+| `queerhana furry tale, june 2005` | 2005-06-14 |
+| `mini queerhana purim, march 2003` | 2003-03-21 (most items; a few carry a camera misdate of 2004-08-05 and are left without a `created_year`) |
+| `allenbeach reclaim the streets action, 8 march 2003` | 2003-03-08 |
+| `allenbeach reclaim the streets action, 15-18 march 2003` | 2003-03-15 .. 2003-03-18 |
+| `pink communities coalition, 2009` | 2009-08-05 (some items; the rest undated) |
+| `queerhana four-day festival, september 2002` | 2002-09-28 |
+| `this is a free zone, ngbk berlin, 2017` | no EXIF (year from the material itself) |
+| `timeout photoshoot (unpublished)` | 2006-12-24 |
+| `haritz parties` | spans December 2008 and February 2009, plus undated items — see below on why this isn't split like allenbeach |
+| `queerhana chuchu` | 2008-08-29 |
+| `down to the atlantis queerhana` | no EXIF (ephemera) |
+
+**The two allenbeach occasions are deliberately NOT merged, unlike haritz.**
+Both `8 march 2003` and `15-18 march 2003` carry the same series framing (one
+of the Allenbeach crew's reclaim-the-streets actions) and, by the splitting
+rule above, are far enough apart in date to be separate occasions in their
+own right — the date split stands. This is a different situation from
+`haritz parties`: haritz is one long-running series of parties rather than a
+set of individually dated actions, which is why its dated variants were
+merged back into a single name (see Corrections applied) while allenbeach's
+were not.
 
 ## Corrections applied
 
@@ -65,17 +82,13 @@ outranks both EXIF and the notes.
 | `no-pride queerhana under the bridge, 2002` | `no-pride queerhana under the bridge, 2003` (corroborated by text in the photographs, not EXIF alone) |
 | `queerhana furry tale, july 2006` | `queerhana furry tale, june 2005` |
 | `mini queerhana purim march, 2003` | `mini queerhana purim, march 2003` (the trailing "march" in the original note was the month, not a procession; not split — see the misdate note above) |
-| `haritz parties` | split into `december 2008` and `february 2009` |
+| `haritz parties` (pilot-era generic) | split into `december 2008` and `february 2009`, later merged back into a single `haritz parties` — the name now covers the ongoing party series rather than individually dated occasions |
+| `fun fun funzine urban festival` | removed along with its sole item, `queerhana-off-the-grid` (deleted from IA) |
 
 ## Blank event field
 
-7 items carry no event name:
-
-- 4 marked "no event" during clustering, or had no note to cluster from.
-- 3 lost their event when their cluster split and they carry no EXIF date to
-  place them on an occasion: `atlantis-flyer-all.jpg`, `Haritz/shana pizoz1.jpg`,
-  `Haritz/haritz_Loop_2.MPG`. These need a human to assign an occasion —
-  do not guess one from folder name.
+`queerhana-dscn6163` is now the only item deliberately without an event name
+— no occasion could be established for it, and none has been guessed.
 
 ## The location field
 
