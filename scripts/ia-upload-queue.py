@@ -6,6 +6,7 @@ conventions (ia binary path, config file, subject tags).
 Usage:
   PYTHONWARNINGS=ignore python3 scripts/ia-upload-queue.py approved.csv [--delay 240]
   PYTHONWARNINGS=ignore python3 scripts/ia-upload-queue.py approved.csv --only "path/to/file.jpg"
+  PYTHONWARNINGS=ignore python3 scripts/ia-upload-queue.py fix.csv --mode replace --only "path/to/file.jpg"
 
 --only <filepath>: restricts the run to the single row whose filepath column
 exactly matches the given value, and skips every other row -- same code
@@ -13,8 +14,58 @@ path, same license/rights handling, same state/log files, as a batch run.
 This is the supported way to upload one item by hand; it exists so there is
 no reason left to call `ia upload` directly and bypass these guards.
 
+--mode {create,replace} (default create): create is the normal new-item
+batch path. replace is for fixing the file on an item that already exists
+(e.g. an orientation correction) and is structurally unable to create a new
+item OR add a stray file to an existing one: it requires BOTH an explicit
+`identifier` column and an explicit `remote_name` column per row (neither is
+ever inferred from the local path in replace mode) and aborts any row whose
+identifier isn't already a live IA item, before uploading a single byte.
+
+**Never derive an identifier, or a remote filename, from a scratch/temp
+local path.** identifier_for() slugifies whatever basename the row's
+filepath has, and `ia upload` defaults the remote filename to that same
+local basename when no --remote-name is given. A replacement file staged
+under a name like "<archive_id>__<original_name>.JPG" for local
+disambiguation across a batch will leak that naming convention into IA
+twice, independently:
+  - the identifier: slugifies into a double-prefixed identifier (e.g.
+    "queerhana-queerhana-dscn0663-dscn0663") and -- in create mode, or
+    before --mode replace's existence check existed -- silently creates a
+    brand new public IA item instead of touching the real one.
+  - the remote filename: uploads as a new sibling file under the scratch
+    name (e.g. "queerhana-dscn0694__DSCN0694.JPG") sitting alongside the
+    untouched original, instead of overwriting it -- the item gains a
+    duplicate, the real file is never replaced, and nothing on the surface
+    looks wrong until someone checks the file list.
+This happened, in that order, in the same incident (2026-08-20, during a
+19-item orientation-rotation fix): the identifier bug first (6 stray public
+items, caught and deleted by hand -- IA's delete API removed the content
+files but refused, 403, to remove `_meta.sqlite`/`_files.xml`/`_meta.xml`,
+so the empty item shells are permanent), then the remote-filename bug on
+the very next attempt, after the identifier bug alone had been fixed (3
+items each gained a duplicate file). A replace operation must be
+structurally incapable of creating anything -- not an item, not a file.
+Always pass explicit `identifier` and `remote_name` columns when replacing
+a file on an existing item; never rely on filename inference for either.
+
+identifier (optional column, required in replace mode): the exact target IA
+identifier for this row. When present, used directly -- no inference, no
+slugification. When absent in create mode, falls back to
+identifier_for(filepath) and prints a loud WARN line naming the inferred
+identifier before upload. Absent in replace mode is a hard error for that
+row -- replace never infers.
+
+remote_name (optional column, required in replace mode): the exact filename
+the upload should land as on IA (i.e. that row's existing `ia_file` value,
+when replacing). When present, used directly via `ia upload --remote-name`.
+When absent in create mode, defaults to the local file's basename (the
+previous, only behavior) and prints a loud WARN line. Absent in replace
+mode is a hard error for that row -- replace never infers.
+
 approved.csv columns (header required):
   filepath,title,description,creator,license,subject_tags,event,location,created_year,rights_owner,rights_statement
+  optional: identifier, remote_name (see above)
   subject_tags: semicolon-separated, e.g. "Queerhana;queer activism;Tel Aviv"
   license: required per row. Recognised values:
     - one of the 7 CC 4.0 labels (e.g. "CC BY-NC-SA 4.0") -- mapped to its
@@ -107,11 +158,12 @@ def append_log(path, row):
         w.writerow(row)
 
 
-def build_upload_cmd(identifier, row):
+def build_upload_cmd(identifier, row, remote_name):
     ext = os.path.splitext(row["filepath"])[1].lower()
     mediatype = MEDIATYPE_BY_EXT.get(ext, "data")
     cmd = [
         IA_BIN, "--config-file", IA_CFG, "upload", identifier, row["filepath"],
+        f"--remote-name={remote_name}",
         "-m", f"mediatype:{mediatype}",
         "-m", f"title:{row['title']}",
     ]
@@ -140,16 +192,33 @@ def build_upload_cmd(identifier, row):
     return cmd
 
 
+def identifier_exists(identifier):
+    """True if the identifier already resolves to a live IA item. Used only
+    by --mode replace to make "create a new item" structurally impossible --
+    a replace that targets a nonexistent identifier is always a bug, not a
+    judgment call, so this check aborts it rather than letting `ia upload`
+    silently create one."""
+    proc = subprocess.run([IA_BIN, "--config-file", IA_CFG, "metadata", identifier],
+                           capture_output=True, text=True)
+    if proc.returncode != 0:
+        return False
+    try:
+        data = json.loads(proc.stdout)
+    except json.JSONDecodeError:
+        return False
+    return bool(data.get("metadata"))
+
+
 def is_throttle_error(output):
     signals = ("spam", "reduce your request rate", "rate limit", "503", "slow down")
     low = output.lower()
     return any(s in low for s in signals)
 
 
-def upload_one(identifier, row, log_path):
+def upload_one(identifier, row, remote_name, log_path):
     last_was_throttle = False
     for attempt in range(1, MAX_RETRIES + 1):
-        cmd = build_upload_cmd(identifier, row)
+        cmd = build_upload_cmd(identifier, row, remote_name)
         proc = subprocess.run(cmd, capture_output=True, text=True)
         output = (proc.stdout or "") + (proc.stderr or "")
         if proc.returncode == 0:
@@ -177,6 +246,16 @@ def main():
                      help="seconds to wait between successful uploads (default 240)")
     ap.add_argument("--only", metavar="FILEPATH",
                      help="upload only the row whose filepath column exactly matches this value")
+    ap.add_argument("--mode", choices=["create", "replace"], default="create",
+                     help="'create' (default): normal new-item batch upload, filename-inferred "
+                          "identifier and remote_name allowed. 'replace': for fixing an existing "
+                          "item's file. Requires explicit identifier AND remote_name columns per "
+                          "row (neither ever inferred), and aborts that row if the identifier "
+                          "isn't already a live IA item -- structurally cannot create a new item "
+                          "or add a stray file to an existing one.")
+    ap.add_argument("--dry-run", action="store_true",
+                     help="resolve and print each row's identifier (and, in replace mode, whether "
+                          "it exists on IA) without uploading anything or writing state/log files")
     args = ap.parse_args()
 
     base_dir = os.path.dirname(os.path.abspath(args.csv_path)) or "."
@@ -194,7 +273,65 @@ def main():
             sys.exit(f"--only {args.only!r} matched no row in {args.csv_path}")
 
     for row_index, row in enumerate(rows):
-        identifier = identifier_for(row["filepath"])
+        explicit_id = (row.get("identifier") or "").strip()
+        explicit_remote = (row.get("remote_name") or "").strip()
+        id_note = ""
+        remote_note = ""
+
+        if args.mode == "replace":
+            # Both must be stated explicitly. A replace that can create a
+            # new item, or add a new file to the right item under the
+            # wrong name, is the same class of bug either way -- neither
+            # is ever inferred from the local scratch path.
+            missing = [name for name, val in (("identifier", explicit_id), ("remote_name", explicit_remote)) if not val]
+            if missing:
+                print(f"[replace] {row['filepath']} -> ABORTED: replace mode requires explicit "
+                      f"{' and '.join(missing)} column(s), none given -- inference is not permitted in replace mode")
+                append_log(log_path, ["(incomplete)", "failed_final", now_iso(),
+                                       f"replace mode missing {missing} for filepath={row['filepath']!r}"])
+                continue
+            identifier = explicit_id
+            remote_name = explicit_remote
+        else:
+            if explicit_id:
+                identifier = explicit_id
+            else:
+                identifier = identifier_for(row["filepath"])
+                id_note = " (WARN: no explicit identifier column -- INFERRED from filename)"
+            if explicit_remote:
+                remote_name = explicit_remote
+            else:
+                remote_name = os.path.basename(row["filepath"])
+                remote_note = " (WARN: no explicit remote_name column -- defaulted to local basename)"
+
+        # Pre-flight: printed for every row before any bytes move, so a
+        # wrong target is visible up front rather than discovered after
+        # the fact -- this is what would have caught both bugs in the
+        # 2026-08-20 incident (double-prefixed identifier, and a
+        # duplicate file added under the local scratch name) before any
+        # of it happened.
+        print(f"[{args.mode}] {row['filepath']} -> identifier={identifier}{id_note} "
+              f"-> remote_name={remote_name}{remote_note}")
+
+        if args.dry_run:
+            if args.mode == "replace":
+                exists = identifier_exists(identifier)
+                print(f"  dry-run: target {'EXISTS on IA' if exists else 'DOES NOT EXIST -- would abort'}")
+            else:
+                print("  dry-run: create mode, no existence check performed")
+            continue
+
+        if args.mode == "replace" and not identifier_exists(identifier):
+            print(f"[replace] {identifier}: ABORTED -- target identifier does not exist on IA, "
+                  f"refusing to create it")
+            state[identifier] = {"status": "failed",
+                                  "error": "replace mode: target identifier not found on IA",
+                                  "timestamp": now_iso()}
+            save_state(state_path, state)
+            append_log(log_path, [identifier, "failed_final", now_iso(),
+                                   "replace mode: target identifier does not exist on IA -- refused, never creates"])
+            continue
+
         entry = state.get(identifier)
 
         if entry and entry.get("status") in ("done", "failed"):
@@ -246,7 +383,7 @@ def main():
             append_log(log_path, [identifier, "failed_final", now_iso(), "file not found: " + row["filepath"]])
             continue
 
-        status, error = upload_one(identifier, row, log_path)
+        status, error = upload_one(identifier, row, remote_name, log_path)
         state[identifier] = {"status": status, "error": error, "timestamp": now_iso()}
         save_state(state_path, state)
 
